@@ -14,6 +14,10 @@ use Session;
 class BuildingController extends Controller
 {
 
+	public function allName(){
+		return Building::select('name')->get();
+	}
+	
 	public function index_2()
 	{
 

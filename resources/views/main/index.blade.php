@@ -2,6 +2,7 @@
 
 @section('added-css-scripts')
   @include('main.scripts.css-osm')  
+
 @endsection
 
 @section('contentheader_title')

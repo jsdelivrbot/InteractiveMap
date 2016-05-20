@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function () {
 	]);
 
 	Route::get('buildingdata', 'BuildingController@json');
+	Route::get('b-names', 'BuildingController@allName');
 
 	Route::get('buildingdata/{id}', 'BuildingController@jsonByID');
 

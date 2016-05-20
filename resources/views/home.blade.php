@@ -9,6 +9,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('layouts.partials.htmlheader')
     @include('main.scripts.css-user-map') 
   @show     
+  <style type="text/css">
+/*   .typeahead-wrapper {
+        display: block;
+        margin: 50px 0;
+      }
+      .tt-dropdown-menu {
+        background-color: #fff;
+        border: 1px solid #000;
+      }
+      .tt-suggestion.tt-cursor {
+        background-color: #ccc;
+      }
+      .triggered-events {
+        float: right;
+        width: 500px;
+        height: 300px;
+      }
+*/
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+  </style>
 </head>
 
 <body class="skin-green sidebar-collapse">
@@ -41,8 +68,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </button>
   </div>
 
-  <div id="info-box">
+  <div id="login-box">
     <a href="{{url('/auth/login')}}">Login</a>
+  </div>
+  <div id="info-box">
+    <span id="preview-name">
+    </span>
   </div>
 
   <!-- Modal -->
@@ -67,6 +98,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
     </div>
   </div>
+
+
+              <div id="custom-search-input">
+                <div class="input-group col-md-12" id="srch">
+                    <input type="text" placeholder="Building or Event" id="searchString" class="form-control input-m typeahead" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+
+                <!-- Result Display -->
+<!--                 <div class="result-display" id="search-results">
+                  <div class="res-buildings" id="res-building">
+                    <h5># <strong>Buildings</strong> found.</h5>
+                    <span class="data-container">
+                      <img src="image.jpg" height="40" width="45" ><span class="data-name" id="building-name">Name</span>
+                    </span>
+
+                  </div>
+                  <div class="res-events" id="res-event">
+                    <h5># <strong>Events</strong> found.</h5>
+                    <span class="data-container">
+                      <img src="image.jpg" height="40" width="45" ><span class="data-name" id="building-name">Name</span>
+                    </span>
+                  </div>
+                </div> -->
+
+            </div><!-- End of custom search -->
+
 
   <div id="map-canvas" class="box box-solid"></div>
 
@@ -104,6 +166,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @section('scripts')
   @include('layouts.partials.scripts')
   @include('main.scripts.js-osm') 
+  <script src="{{ asset('/js/typeahead/typeahead.bundle.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('/js/jquery.autocomplete.js') }}" type="text/javascript"></script>
+
 @show
 
   <script>
@@ -128,6 +193,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     //osmb.addOBJ('{{asset('obj/csm.obj')}}', { latitude: 8.24176613467753, longitude: 124.24443304538725}, {id: "my_object_1", scale: 1, rotation: 101, color: '#cccccc'});
 
+    //building set
+    // var buildingSet = null;
+
     //Strictly add per call to map
     var geojson = null;
     //convert string to array
@@ -147,7 +215,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           //console.log(buildings);
           // console.log('success', building);
           var features = new Array();
-
             $.each(buildings, function(i, building){
               //console.log(building);
 
@@ -173,6 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         // SHOW BUILDINGS
         osmb.addGeoJSON(geojson);
+    // console.log(buildingSet);
         }
       });
      }); //end strictly add
@@ -183,13 +251,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         if (id) {
           document.body.style.cursor = 'pointer';
           osmb.highlight(id, '#f08000');
+          // getName(id);
         } else {
           document.body.style.cursor = 'default';
           osmb.highlight(null);
         }
       });
     });
-
 
     // SHOW MODAL
     map.on('pointerdown', function(e) {
@@ -201,6 +269,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       });
     });
 
+    // function getName(id){
+    //   $.ajax({
+    //     type: 'GET',
+    //   dataType: 'JSON',
+    //   url: '/buildingdata/'+id,
+    //   success: function(buildingData){
+    //     $('#preview-name').html(buildingData.name);
+    //   }
+    //   });
+    // }
 
     function getBuilding(id){
       $.ajax({
@@ -249,6 +327,61 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
       });
     }
+
+// //jquery autocomplete
+//   $('#searchString').devbridgeAutocomplete({
+//     serviceUrl: 'b-names',
+//     onSelect: function (suggestion) {
+//       alert('You selected: ' + suggestion.name);
+//       console.log(suggestion);
+//     }
+// });
+
+
+    //script for search. Twitter autofill
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push(str);
+          }
+        });
+
+        cb(matches);
+      };
+    };
+
+var bldg = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: 'b-names',
+  remote: {
+    url: 'b-names'
+  }
+});
+
+console.log(bldg);
+
+$('#srch .typeahead').typeahead({
+  hint: false,
+  highlight: true,
+  minLength: 1
+},
+{
+  display: 'name',
+  source: bldg
+});
+
 
   </script> 
 

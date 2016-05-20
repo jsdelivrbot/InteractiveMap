@@ -44,9 +44,7 @@
                 <th>Height</th>
                 <th>Roof Color</th>
                 <th>Wall Color</th>
-                <th>Polygon</th>
-                <th>Actions</th> 
-                <th></th>               
+                <th>Actions</th>            
               </tr>
             </thead>
 
@@ -58,14 +56,17 @@
                       <td><img src="{{asset('img/buildings/'.$building->image.'.jpg')}}" height="35" width="30"></td>
                       <td>{{ $building->description }}</td>
                       <td>{{ $building->height }}</td>
-                      <td>{{ $building->roofcolor }}</td>
-                      <td>{{ $building->wallcolor }}</td>
-                      <td>{{ $building->polygon }}</td>
-                      <td><a href="{{route('buildings.edit',$building->id)}}" class="btn btn-default btn-md"></i>Edit</a></td>
+                      <td bgcolor="{{ $building->roofcolor }}"></td>
+                      <td bgcolor="{{ $building->wallcolor }}"></td>
                       <td>
+                          <div class="btn-group">
+                          <a href="{{route('buildings.edit',$building->id)}}" class="btn btn-default btn-md"></i>Edit</a>
+ <!--                          <a href="{{route('buildings.destroy', $building->id)}}" class="btn btn-danger btn-md"></i></a> -->
+
                           {!! Form::open(['method' => 'DELETE', 'route'=>['buildings.destroy', $building->id]]) !!}
                           {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-md']) !!}
                           {!! Form::close() !!}
+                          </div>
                       </td>
                   </tr>
               @endforeach
