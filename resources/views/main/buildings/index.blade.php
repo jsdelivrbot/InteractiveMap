@@ -34,7 +34,7 @@
 
         <div class="box-body">
 
-          <table id="buildings-table" class="table table-hover table-condensed table-responsive">
+          <table id="buildings-table" class="table table-hover table-condensed">
             <thead>
               <tr>
                 <th>ID</th>
@@ -44,25 +44,29 @@
                 <th>Height</th>
                 <th>Roof Color</th>
                 <th>Wall Color</th>
-                <th>Actions</th>            
+                <th>Polygon</th>
+                <th>Floors</th>
+                <th>Rooms</th>
+                <th>Actions</th> 
+                <th></th>               
               </tr>
             </thead>
 
             <tbody>
               @foreach($buildings as $building)
                   <tr>
-                      <td>{{ $building->id }}</td>
-                      <td><a href="{{ url('buildings', $building->id) }}">{{ $building->name }}</a></td>
-                      <td><img src="{{asset('img/buildings/'.$building->image.'.jpg')}}" height="35" width="30"></td>
+                      <td style="width:50px;">{{ $building->id }}</td>
+                      <td style="width:50px;"><img src="{{asset('img/buildings/'.$building->image.'.jpg')}}" height="35" width="30"></td>
+                      <td style="width:300px;"><a href="{{ url('buildings', $building->id) }}">{{ $building->name }}</a></td>
                       <td>{{ $building->description }}</td>
-                      <td>{{ $building->height }}</td>
-                      <td bgcolor="{{ $building->roofcolor }}"></td>
-                      <td bgcolor="{{ $building->wallcolor }}"></td>
-                      <td>
-                          <div class="btn-group">
-                          <a href="{{route('buildings.edit',$building->id)}}" class="btn btn-default btn-md"></i>Edit</a>
- <!--                          <a href="{{route('buildings.destroy', $building->id)}}" class="btn btn-danger btn-md"></i></a> -->
-
+                      <td style="width:50px;">{{ $building->height }}</td>
+                      <td style="width:50px; background-color:{{ $building->roofcolor }};" title="{{ $building->roofcolor }}"></td>
+                      <td style="width:50px; background-color:{{ $building->wallcolor }};" title="{{ $building->wallcolor }}"></td>
+                      <td>{{ $building->polygon }}</td>
+                      <td></td>
+                      <td></td>
+                      <td style="width:50px;"><a href="{{route('buildings.edit',$building->id)}}" class="btn btn-default btn-md"></i>Edit</a></td>
+                      <td style="width:50px;">
                           {!! Form::open(['method' => 'DELETE', 'route'=>['buildings.destroy', $building->id]]) !!}
                           {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-md']) !!}
                           {!! Form::close() !!}
@@ -85,11 +89,16 @@
   <script>
     $(function() {
       $('#buildings-table').DataTable({    
+        responsive: true,
         ordering: true,
         searching: true,
         paging: true,
         autoWidth: false,
-        pagingType: "full_numbers"
+        "dom": '<"pull-left"f><"pull-right"l>tip',
+        "columnDefs": [{
+          "targets": [1,5,6,8,9],
+          "orderable": false
+          }]
       });
     });
   </script>

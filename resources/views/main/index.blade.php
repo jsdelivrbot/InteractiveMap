@@ -11,9 +11,7 @@
 
 @section('main-content')
 
-  <!-- <div id="info-box">
-    <span id="preview-name"></span>
-  </div> -->
+  <div id="login-box" class="alert alert-block alert-success"></div>
 
 	<div class="control tilt btn-group-vertical">
     <button type="button" class="btn btn-default dec" data-toggle="tooltip" data-placement="right" title="Tilt down">
@@ -40,6 +38,14 @@
     <button type="button" class="btn btn-default dec"data-toggle="tooltip" data-placement="right" title="Zoom out">
       <i class="fa fa-minus"></i>
     </button>
+  </div>
+
+  <div id="search-box">
+    <input id="demo4" type="text" class="col-md-12 form-control" placeholder="Search building" autocomplete="off" />
+  </div>
+
+  <div id="name-box">
+    <span id="preview-name"></span>
   </div>
 
   <!-- Modal -->
@@ -95,6 +101,8 @@
 
     //osmb.addOBJ('{{asset('obj/csm.obj')}}', { latitude: 8.24176613467753, longitude: 124.24443304538725}, {id: "my_object_1", scale: 1, rotation: 101, color: '#cccccc'});
 
+    osmb.addGeoJSON("{{ asset('/json/landarea.json') }}");
+    
     //Strictly add per call to map
     var geojson=null;
     //convert string to array.
@@ -148,6 +156,7 @@
         if (id) {
           document.body.style.cursor = 'pointer';
           osmb.highlight(id, '#f08000');
+          getName(id);
           
         } else {
           document.body.style.cursor = 'default';
@@ -166,7 +175,18 @@
       });
     });
 
-     function getBuilding(id){
+    function getName(id){
+      $.ajax({
+        type: 'GET',
+      dataType: 'JSON',
+      url: '/buildingdata/'+id,
+      success: function(buildingData){
+        $('#preview-name').html(buildingData.name);
+      }
+      });
+    }
+
+    function getBuilding(id){
       $.ajax({
         type: 'GET',
       dataType: 'JSON',
@@ -215,5 +235,18 @@
     }
 
   </script> 
+  
+  <script>
+    $(function() {
+      function displayResult(item) {
+        $('.alert').show().html('You selected <strong>' + item.value + '</strong>: <strong>' + item.text + '</strong>');
+      }
+      $('#demo4').typeahead({
+        ajax: '/buildingdata',
+        onSelect: displayResult
+      });
+    });
+  </script>
+
 @endsection
 

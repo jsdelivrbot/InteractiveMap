@@ -70,6 +70,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <div id="login-box">
     <a href="{{url('/auth/login')}}">Login</a>
+    <!-- <div class="alert alert-block alert-success"></div> -->
+  </div>
+
+  <div id="search-box">
+    <input id="demo4" type="text" class="col-md-12 form-control" placeholder="Search building" autocomplete="off" />
+  </div>
+
+  <div id="name-box" hidden>
+    <span id="preview-name"></span>
   </div>
   <div id="info-box">
     <span id="preview-name">
@@ -191,6 +200,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     osmb.addMapTiles('http://{s}.tiles.mapbox.com/v3/osmbuildings.kbpalbpk/{z}/{x}/{y}.png'),
     {attribution: '© Data <a href=http://openstreetmap.org/copyright/>OpenStreetMap</a> · © Map <a href=http://mapbox.com>MapBox</a>'};
 
+    osmb.addGeoJSON("{{ asset('/json/landarea.json') }}");
+
     //osmb.addOBJ('{{asset('obj/csm.obj')}}', { latitude: 8.24176613467753, longitude: 124.24443304538725}, {id: "my_object_1", scale: 1, rotation: 101, color: '#cccccc'});
 
     //building set
@@ -216,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           // console.log('success', building);
           var features = new Array();
             $.each(buildings, function(i, building){
-              //console.log(building);
+              console.log(building);
 
               features[i] = {
                   type: "Feature", 
@@ -251,10 +262,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         if (id) {
           document.body.style.cursor = 'pointer';
           osmb.highlight(id, '#f08000');
-          // getName(id);
+          getName(id);
+          $('#name-box').show();
+          $('#name-box').css({'top':e.y,'left':e.x}).fadeIn('slow');
         } else {
           document.body.style.cursor = 'default';
           osmb.highlight(null);
+          $('#name-box').hide();
         }
       });
     });
@@ -269,16 +283,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       });
     });
 
-    // function getName(id){
-    //   $.ajax({
-    //     type: 'GET',
-    //   dataType: 'JSON',
-    //   url: '/buildingdata/'+id,
-    //   success: function(buildingData){
-    //     $('#preview-name').html(buildingData.name);
-    //   }
-    //   });
-    // }
+    function getName(id){
+      $.ajax({
+        type: 'GET',
+      dataType: 'JSON',
+      url: '/buildingdata/'+id,
+      success: function(buildingData){
+        $('#preview-name').html(buildingData.name);
+        // $('.alert').show().html(buildingData.name);
+
+      }
+      });
+    }
 
     function getBuilding(id){
       $.ajax({
@@ -288,7 +304,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       success: function(buildingData){
         $('#modal-id').html(buildingData.id);
         $('#modal-title').html(buildingData.name);
-        // $('#preview-name').html(buildingData.name);
         $('#modal-description').html(buildingData.description);
         $('#modal-image').html('<img src="/img/buildings/'+buildingData.image+'.jpg" width="570">');
       }
@@ -384,6 +399,20 @@ $('#srch .typeahead').typeahead({
 
 
   </script> 
+
+  <script>
+    $(function() {
+      function displayResult(item) {
+        $('.alert').show().html('You selected <strong>' + item.value + '</strong>: <strong>' + item.text + '</strong>');
+        $('#myModal').modal('show');
+        getBuilding(item.value);
+      }
+      $('#demo4').typeahead({
+        ajax: '/buildingdata',
+        onSelect: displayResult
+      });
+    });
+  </script>
 
 </body>
 </html>
