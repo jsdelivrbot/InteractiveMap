@@ -11,7 +11,7 @@
 
 @section('main-content')
 
-  <div id="login-box" class="alert alert-block alert-success"></div>
+<!--   <div id="login-box" class="alert alert-block alert-success"></div> -->
 
 	<div class="control tilt btn-group-vertical">
     <button type="button" class="btn btn-default dec" data-toggle="tooltip" data-placement="right" title="Tilt down">

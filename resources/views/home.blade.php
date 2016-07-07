@@ -73,10 +73,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <div class="alert alert-block alert-success"></div> -->
   </div>
 
-  <div id="search-box">
+<!--   <div id="search-box">
     <input id="demo4" type="text" class="col-md-12 form-control" placeholder="Search building" autocomplete="off" />
   </div>
-
+ -->
   <div id="name-box" hidden>
     <span id="preview-name"></span>
   </div>
