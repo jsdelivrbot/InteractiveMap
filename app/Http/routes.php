@@ -35,9 +35,6 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('buildingdata/{id}', 'BuildingController@jsonByID');
 
-	Route::get('testmap', function(){
-		return view('maptest');
-	});
 
 	Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z_-]+');
 
@@ -49,18 +46,6 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::resource('buildings','BuildingController');
 
-// <<<<<<< HEAD
-// 	Route::get('buildings?search={$search}', [
-// 		'as'=>'search',
-// 		'uses'=>'BuildingController@searchByString($search)'
-// 	]);
-
-// 	Route::resource('buildings/create','BuildingController@buildings_create_polygon');
-
-// 	//Route::resource('buildings/edit','BuildingController@polygon{$id}');
-
-// 	Route::resource('buildings/{$id}/edit', 'BuildingController@buildings_edit($id)');
-// =======
 	Route::get('buildings/create','BuildingController@buildings_create_polygon');
 
 	Route::get('buildings/edit','BuildingController@buildings_edit_polygon');
@@ -68,79 +53,14 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::resource('map-editor','BuildingController@index_map_editor');
 
-	// Route::resource('user', 'UserController');
-
-	
-
-	//Route::resource('buildings/{{$building->id}}/edit','BuildingController@buildings_edit_polygon');
-
-/*	
-	// Admin
-	Route::get('admin', [
-		'uses' => 'AdminController@admin',
-		'as' => 'admin',
-		'middleware' => 'admin'
-	]);
-
-	Route::get('medias', [
-		'uses' => 'AdminController@filemanager',
-		'as' => 'medias',
-		'middleware' => 'redac'
-	]);
-
-
-	Route::get('/index', function () {
-	    return view('main.index');
+	//test design route
+	Route::get('testmap', function(){
+		return view('maptest');
 	});
 
 
 
-
-	*/
-	
-	/* 
-
-	Route::get('user', UserController);
-	//add user backend routes
-	*/
-
-/*
-	Route::get('/about', function () {
-	    return view('about');
-	});*/
-
-	//Route::get('/settings', function () {
-	//    return view('settings');
-	//});
-
-	//Normal User  Routes
-	/*
-		Route::get('/', function () {
-		    return view('welcome'); 
-		});
-
-		Route::get('map-editor', function () {
-		    return view('layouts.back.map'); 
-	});
-	*/
-
-	/* modified routes (RESTful API)
-	Route::resource('/', DisplayController, [
-		'only' => ['show'] //show metadata of buildings
-	]});
-	*/
-
-	// User
-	// Route::get('user/sort/{role}', 'UserController@indexSort');
-
-	// Route::get('user/roles', 'UserController@getRoles');
-	// Route::post('user/roles', 'UserController@postRoles');
-
-	// Route::put('userseen/{user}', 'UserController@updateSeen');
-
-	// Route::resource('user', 'UserController');
-
-
+	//useless routes
 	// Authentication routes...
 	Route::get('auth/login', 'Auth\AuthController@getLogin');
 	Route::post('auth/login', 'Auth\AuthController@postLogin');
