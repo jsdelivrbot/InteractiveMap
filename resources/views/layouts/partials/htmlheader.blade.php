@@ -1,3 +1,5 @@
+<!-- Possible Change -->
+
 <head>
     <meta charset="UTF-8">
     <title> AdminLTE 2 with Laravel - @yield('htmlheader_title', 'Your title here') </title>

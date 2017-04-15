@@ -19,42 +19,49 @@
         @endif
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
+<!--         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
               <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
             </div>
-        </form>
+        </form> -->
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <!-- <li class="header">HEADER</li> -->
+            <li class="header">Main Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li>
               <a href="{{ url('index') }}">
                 <i class="fa fa-home fa-fw"></i>
-                <span>Home</span>
+                <span>Front Map</span>
               </a>
             </li>
 
             <li>
-              <a href="{{ url('map-editor') }}">
+              <a href="{{ url('buildings') }}">
+                <i class="fa fa-building fa-fw"></i> 
+                <span>Buildings</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ url('modify') }}">
                 <i class="fa fa-map fa-fw"></i> 
-                <span>Map Editor</span>
+                <span>Modify Building</span>
               </a>
             </li>
 
-            <li>
+<!--             <li>
               <a href="{{ url('events') }}">
                 <i class="fa fa-bookmark fa-fw"></i> 
                 <span>Events</span>
               </a>
             </li>
-
-            <li>
+ -->
+<!--             <li>
               <a href="{{ url('about') }}">
                 <i class="fa fa-user fa-fw"></i> 
                 <span>About</span>
@@ -65,6 +72,12 @@
               <a href="{{ url('settings') }}">
                 <i class="fa fa-gears fa-fw"></i> 
                 <span>Settings</span>
+              </a>
+            </li> -->
+            <li>
+              <a href="{{ url('logout') }}">
+                <i class="fa fa-sign-out fa-fw"></i> 
+                <span>Logout</span>
               </a>
             </li>
 
