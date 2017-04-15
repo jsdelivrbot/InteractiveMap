@@ -19,21 +19,21 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/map-editor', function () {
-    return view('map-editor');
+Route::get('/buildings', function () {
+    return view('layouts.pages.building');
 });
 
-Route::get('/events', function () {
-    return view('events');
+// Route::get('/events', function () {
+//     return view('events');
+// });
+
+Route::get('/modify', function () {
+    return view('layouts.pages.modify');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/settings', function () {
-    return view('settings');
-});
+// Route::get('/logout', function () {
+//     return view('settings');
+// });
 
 
 /*
