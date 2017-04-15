@@ -1,4 +1,4 @@
-<!-- REQUIRED JS SCRIPTS -->
+<!-- Correct these JS SCRIPTS -->
 
 <script src='http://cdn.osmbuildings.org/OSMBuildings-GLMap-2.0.0/GLMap/GLMap.js'></script>
 
