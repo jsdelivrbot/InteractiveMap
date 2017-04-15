@@ -5,7 +5,7 @@
 @endsection
 
 @section('main-content')
-	<div class="control tilt btn-group-vertical">
+<!-- 	<div class="control tilt btn-group-vertical">
     <button type="button" class="btn btn-default dec" data-toggle="tooltip" data-placement="right" title="Tilt down">
       <i class="fa fa-long-arrow-up"></i>
     </button>
@@ -32,7 +32,7 @@
     </button>
   </div>
 
-  <div id="map-canvas" class="box box-solid"></div>
+  <div id="map-canvas" class="box box-solid"></div> -->
 @endsection
 
 @section('scripts-glmap')

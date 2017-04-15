@@ -6,7 +6,8 @@
     
 <script src="https://cdn.rawgit.com/tweenjs/tween.js/master/src/Tween.js"></script>
 
-<script src="{{ asset('/js/index.js') }}" type="text/javascript"></script>
+<!--removed-->
+<!-- <script src="{{ asset('/js/index.js') }}" type="text/javascript"></script>  -->
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the
