@@ -21,10 +21,9 @@
 
 @section('added-js')
 
-    <script src="{{ asset('/js/OSMBuildings/OSMBuildings.js') }}"></script>
+  <script src="{{ asset('/js/OSMBuildings/OSMBuildings.js') }}"></script>
+  <script src="{{ asset('/js/appbase/main.js') }}"></script>
+  <script type="text/javascript">appglobal.frontMap =true;</script>
 
-    <script type="text/javascript">appglobal.frontMap =true;</script>
-
-    <script src="{{ asset('/js/appbase/main.js') }}"></script>
 
 @endsection
