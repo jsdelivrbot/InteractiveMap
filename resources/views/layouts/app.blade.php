@@ -5,9 +5,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 
-@section('htmlheader')
-    @include('layouts.partials.htmlheader')
-@show
+<head>
+    @section('htmlheader')
+        @include('layouts.partials.htmlheader')
+    @show    
+    
+    @yield('added-css')
+</head>
 
 <!--
 BODY TAG OPTIONS:
@@ -29,7 +33,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-green sidebar-mini sidebar-collapse">
+<body class="skin-green sidebar-mini ">
 <div class="wrapper">
 
     <!-- <?php 
@@ -56,6 +60,7 @@ desired effect
 
 @section('scripts')
     @include('layouts.partials.scripts')
+    @yield('added-js')
 @show
 
 </body>

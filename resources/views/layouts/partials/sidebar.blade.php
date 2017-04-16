@@ -35,7 +35,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li>
               <a href="{{ url('index') }}">
-                <i class="fa fa-home fa-fw"></i>
+                <i class="fa fa-map fa-fw"></i>
                 <span>Front Map</span>
               </a>
             </li>
@@ -49,7 +49,7 @@
 
             <li>
               <a href="{{ url('modify') }}">
-                <i class="fa fa-map fa-fw"></i> 
+                <i class="fa fa-building fa-fw"></i> 
                 <span>Modify Building</span>
               </a>
             </li>

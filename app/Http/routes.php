@@ -19,8 +19,12 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/landing', function () {
+    return view('layouts.landing');
+});
+
 Route::get('/buildings', function () {
-    return view('layouts.pages.building');
+    return view('pages.building');
 });
 
 // Route::get('/events', function () {
@@ -28,7 +32,7 @@ Route::get('/buildings', function () {
 // });
 
 Route::get('/modify', function () {
-    return view('layouts.pages.modify');
+    return view('pages.modify');
 });
 
 // Route::get('/logout', function () {
