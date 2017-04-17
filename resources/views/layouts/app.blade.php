@@ -46,7 +46,7 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+            @yield('content-header')
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
@@ -54,7 +54,9 @@ desired effect
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    @include('layouts.partials.controlsidebar')
+    <!-- @include('layouts.partials.controlsidebar') -->
+
+    @yield('subcontents')
 
 </div><!-- ./wrapper -->
 

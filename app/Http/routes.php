@@ -24,15 +24,14 @@ Route::get('/landing', function () {
 });
 
 Route::get('/buildings', function () {
-    return view('pages.building');
+	$searchPH = 'Search building';
+    return view('pages.building',compact('searchPH'));
 });
 
-// Route::get('/events', function () {
-//     return view('events');
-// });
-
 Route::get('/modify', function () {
-    return view('pages.modify');
+	$searchPH = 'Search to Edit';
+
+    return view('pages.modify',compact('searchPH'));
 });
 
 // Route::get('/logout', function () {

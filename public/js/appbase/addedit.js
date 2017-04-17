@@ -91,6 +91,7 @@ function modifyModal(modal,obj,table){
 */
 
 var str = 'map_build'
+// leaflet = L.noConflict;
 	// targetobj //object still visible.
 
 maphandler = {
@@ -100,6 +101,7 @@ maphandler = {
 			return;
 		}
 
+		// console.log(L.Control.Draw)
 		appglobal.map2 = new L.Map(str,{
 			center:[8.24107, 124.24392],
 			zoom:17,

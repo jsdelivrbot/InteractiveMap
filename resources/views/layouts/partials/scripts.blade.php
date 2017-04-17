@@ -13,4 +13,4 @@
 
 <script src="{{ asset('/js/appbase/table.js') }}"></script>
 <script src="{{ asset('/js/appbase/globalVar.js') }}"></script> <!-- global variables dont remove -->
-<script type="text/javascript">console.log("call?")</script>
+<!-- <script type="text/javascript">console.log("call?")</script> -->

@@ -6,33 +6,26 @@ var appThis = function(){
 			var posObj; // object position of building
 			maphandler.init(posObj,false) //disables the map controls
 		}
-		// appglobal.map.supply(appglobal.buildFeature(table.buildObjs))
+		maphandler.setControl()
+
+		$('#buildModal #b-map').hide()
+		$('#b-img').show()
  	}
-	console.log("hello?","{{assets('query/buildingquery.json')}}")
- 	$.getJSON("{{ assets('query/buildingquery.json') }}",function(json){ //just sample.. query or ajax function starts here
+
+ 	$.getJSON('http://localhost:8000/query/buildingquery.json',function(json){ //just sample.. query or ajax function starts here
  		appglobal.queried = json;
 		table.supply(json);
-      console.log(json)
-      
-		maphandler.addOSM(appglobal.buildFeature(appglobal.queried))
-				console.log(appglobal.queried)
-
-		maphandler.setControl()
+      // console.log(json)
+     	if(appglobal.map!=undefined){
+			// var posObj; // object position of building
+			// maphandler.init(posObj,false) //disables the map controls
+			maphandler.addOSM(appglobal.buildFeature(appglobal.queried))
+		}
+		// maphandler.setControl()
  	}); //ends sample function
 
+	// console.log("hello?","{{ asset('/query/buildingquery.json') }}")
  	// console.log(appglobal.queried,appglobal.map)
-
- 	// appglobal.map = new OSMBuildings({
-		//     position: {latitude: 8.241097198309157, longitude: 124.24392879009247},
-		//     zoom: 17.8,
-		//     tilt: 45,
-		//     // disabled: ifDis
-		// });
-		// appglobal.map.appendTo(str);
-		// appglobal.map.addMapTiles(
-		//     'https://{s}.tiles.mapbox.com/v3/osmbuildings.kbpalbpk/{z}/{x}/{y}.png',
-		// );
-
 
  	// $('.sidebar-toggle').on('click',function(){
  	// 	console.log('clicked')
