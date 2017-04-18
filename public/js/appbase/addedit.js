@@ -6,12 +6,21 @@ var appThis = function(){
 	var table = new TableMain('tablebuild')
 	// var mainmap;
 	// console.log(table.domObj)
- 	$.getJSON('query/buildingquery.json',function(json){ //just sample.. query or ajax function starts here
-      
- 		appglobal.queried = json;
-      table.supply(json);
-      // console.log(json)
- 	}); //ends sample function
+ 	// $.getJSON('query/buildingquery.json',function(json){ //just sample.. query or ajax function starts here
+ 	// 	appglobal.queried = json;
+  //     table.supply(json);
+  //     console.log('called sample query',json)
+ 	// }); //ends sample function
+
+ 	$.ajax({
+      type: 'GET',
+      dataType: 'JSON',
+      url: '/b',
+      success: function(buildings){
+      	appglobal.queried = buildings;
+		table.supply(buildings);
+	    }
+    });
 
  	// console.log(table.buildObjs);
  	$('#cardlist,#tablelist').on('click', function(){

@@ -20,7 +20,7 @@ Route::get('/index', function () {
 });
 
 Route::post('/verify', function () {
-    return $_POST;
+    return $_POST; //change later
 });
 
 Route::get('/landing', function () {
@@ -32,7 +32,11 @@ Route::get('/buildings', 'HomeController@buildings');
 Route::get('/modify', 'HomeController@modify');
 
 Route::get('/b', 'BuildController@all');
+
 Route::get('/b/{id}', 'BuildController@bID');
+
+Route::get('/b/not/{id}', 'BuildController@notId');
+
 
 
 // Route::get('/logout', function () {

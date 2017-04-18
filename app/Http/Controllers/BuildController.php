@@ -22,4 +22,9 @@ class BuildController extends Controller
     	// echo 'Id:'. $id .'<br />'; 
     	return Building::find($id);
     }
+
+    function notId($id){
+    	$buildings = Building::all()->except($id);
+    	 return $buildings;
+    }
 }
