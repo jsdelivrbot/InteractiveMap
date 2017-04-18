@@ -23,16 +23,11 @@ Route::get('/landing', function () {
     return view('layouts.landing');
 });
 
-Route::get('/buildings', function () {
-	$searchPH = 'Search building';
-    return view('pages.building',compact('searchPH'));
-});
+Route::get('/buildings', 'HomeController@buildings');
 
-Route::get('/modify', function () {
-	$searchPH = 'Search to Edit';
+Route::get('/modify', 'HomeController@modify');
 
-    return view('pages.modify',compact('searchPH'));
-});
+Route::get('/b', 'BuildController@all');
 
 // Route::get('/logout', function () {
 //     return view('settings');

@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -34,5 +34,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('index');
+    }
+
+    public function buildings(){
+        $searchPH = 'Search building';
+        return view('pages.building',compact('searchPH'));
+    }
+
+    public function modify(){
+        $searchPH = 'Search to Edit';
+        return view('pages.modify',compact('searchPH'));
     }
 }
