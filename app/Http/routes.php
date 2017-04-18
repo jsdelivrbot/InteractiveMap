@@ -19,6 +19,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::post('/verify', function () {
+    return $_POST;
+});
+
 Route::get('/landing', function () {
     return view('layouts.landing');
 });
@@ -28,6 +32,8 @@ Route::get('/buildings', 'HomeController@buildings');
 Route::get('/modify', 'HomeController@modify');
 
 Route::get('/b', 'BuildController@all');
+Route::get('/b/{id}', 'BuildController@bID');
+
 
 // Route::get('/logout', function () {
 //     return view('settings');

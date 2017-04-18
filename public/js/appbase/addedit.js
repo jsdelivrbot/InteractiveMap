@@ -79,10 +79,37 @@ function modifyModal(modal,obj,table){
 			// Post addobj
 			// $('#buildform').form()
 			// console.log($('#buildform'))
-			var s = $('#buildform').form("get fields");
+			// var s = $('#buildform').form("get fields");
 		// console.log(s);
 	})
 	.modal()
+	// $('#postSubmit').addClass("disabled")
+
+	function checkValues(){
+
+	}
+
+	$('#postSubmit').on('click',function(){
+		var name = $('input[name=name]'),
+			area;
+		console.log('summited',this);
+
+		// return false;
+
+		$.post('/verify',{poly:'this'}).done(function(d){
+			alert('Data:'+ d);
+		})
+
+		 // $.ajax({
+   //          type: "POST",
+   //          url:'/bSumbit',
+   //          // data: {title: title, body: body, published_at: published_at},
+   //          success: function( msg ) {
+   //          	console.log(msg)
+   //              // $("#ajaxResponse").append("<div>"+msg+"</div>");
+   //          }
+   //      });
+	})
 }
 
 /*
@@ -179,43 +206,55 @@ maphandler = {
 		    	featureGroup: drawnItems
 		    }
 		});
+
+		function drawInfos(layer){
+			coordinates = [];
+			latlngs = appglobal.target.getLatLngs();
+		    for (var i = 0; i < latlngs.length; i++) {
+		        coordinates.push([latlngs[i].lng, latlngs[i].lat])
+		    }
+			coordinates.splice((latlngs.length + 1), 0, [latlngs[0].lng, latlngs[0].lat]); 
+			var coordinates_result = JSON.stringify(coordinates); //were as polyline
+			var final_result = "[" + coordinates_result +  "]"; //treat as polygon
+			$('#polygon').val(final_result);
+
+	    	var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
+	    	var c = "<strong>"+ seeArea.toFixed(2) +"</strong> Meters sq."
+	    	$('#area_').val(seeArea.toFixed(2));
+
+	    	$('#area').html(c)
+		}
 			
 			appglobal.map2.addControl(appglobal.controlGroup);
 		  // console.log(drawControl)
 
 		  appglobal.map2.on('draw:created', function (e) {
-		  	console.log("new Obj",e)
 		  	if(appglobal.target!=null){
 		  		return
 		  	}
 		    appglobal.target = e.layer;
-		    console.log(e.layer);
+		    // console.log(e.layer);
 		    if(e.layerType =="polygon"){
-		    	var seeArea = L.GeometryUtil.geodesicArea(e.layer.getLatLngs());
-		    	var c = "<strong>"+ seeArea.toFixed(2) +"</strong> Meters sq."
-		    	$('#area').html(c)
-              	// console.log(seeArea); //sqMeters from http://stackoverflow.com/questions/29724725/how-to-get-the-area-string-from-a-polygon-using-leaflet-draw
+			    drawInfos(e.layer);
 		    	e.layer.TargetBuilding = "this";
 		    	drawnItems.addLayer(e.layer); //not geoJson atm.
 		    }
 		    // setGeoJson();
 		  }).on('draw:edited',function(e){
-		  	console.log("done edit",e)
-		  	var eBuilding //does nothing
+		  	// console.log("done edit",e)
 				e.layers.eachLayer(function(layer){
-					var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
-					var c = "<strong>"+ seeArea.toFixed(2) +"</strong> Meters sq."
-					$('#area').html(c)
-					// console.log("edit area",seeArea); //sqMeters from http://stackoverflow.com/questions/29724725/how-to-get-the-area-string-from-a-polygon-using-leaflet-draw
+					drawInfos(layer)
 				});
 
 		  }).on('draw:editstart',function(e){
-		  	console.log("start edit",e)
+		  	// console.log("start edit",e)
 		  }).on('draw:deleted',function(e){
-		  	console.log("deleted a layer",e)
+		  	// console.log("deleted a layer",e)
+		  	$('#polygon').val('');
+		  	$('#area_').val('');
 		  	e.layers.eachLayer(function(layer){
 			  	if(layer.TargetBuilding=="this"){
-			  		console.log("feature deleted")
+			  		// console.log("feature deleted")
 			  		var c = "Building removed. Must create new."
 					$('#area').html(c)
 			  		appglobal.target = null;

@@ -18,7 +18,7 @@
               </div>
               <div class="box-body">
 
-                <form id="buildform">
+                <form action="verify" method="post" id="buildform">
                   <div class="row">
                     <div class="col-sm-8">
                       <div class="form-group field">
@@ -29,7 +29,7 @@
                     <div class="col-sm-4">
                       <div class="form-group field">
                         <label for="height">Height</label>
-                        <input type="text" id="height" class="form-control input-sm" name="height" id="height" placeholder="by Floor" onkeyup="setHeight(this)">
+                        <input type="text" class="form-control input-sm" name="height" id="height" placeholder="by Floor" onkeyup="setHeight(this)">
                       </div>
                     </div>
                   </div>
@@ -58,12 +58,17 @@
                     <textarea class="form-control" name="desc" class="form-control input-sm" id="desc" placeholder="Tell history, use, etc." rows="3"></textarea>
                   </div>
 
+                  <div>
+                    <textarea class="form-control" name="polygon" class="form-control input-sm" id="polygon" placeholder="polygon" rows="3"></textarea>
+                    <input type="text" class="form-control input-sm" name="area" id="area_" placeholder="area">
+                  </div>
+
                   <div class="row">
                     <div class="col-sm-6">
                       <input type="checkbox"> Certified Building
                     </div>
                     <div class="col-sm-6">
-                      <button type="submit" class="btn btn-sm btn-default pull-right">Submit</button>
+                      <button class="btn btn-sm btn-default pull-right" id="postSubmit">Submit</button>
                     </div>
                   </div>
 

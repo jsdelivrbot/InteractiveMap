@@ -12,7 +12,14 @@ class BuildController extends Controller
 {
     //
     function all(){
-    	$all = Building::all();
-    	return compact('all');
+    	// $all = Building::all();
+    	return Building::all();
+    }
+
+    function bID($id){
+    	// $thisB = Building::find($id);
+    	// echo 'Name:' . $thisB->name . '<br />';
+    	// echo 'Id:'. $id .'<br />'; 
+    	return Building::find($id);
     }
 }
