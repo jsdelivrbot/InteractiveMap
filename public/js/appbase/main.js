@@ -32,8 +32,6 @@ var appThis = function(){
       	appglobal.queried = buildings;
 		table.supply(buildings);
 		if(appglobal.map!=undefined){
-			// var posObj; // object position of building
-			// maphandler.init(posObj,false) //disables the map controls
 			maphandler.addOSM(appglobal.buildFeature(appglobal.queried))
 		}
 	  }

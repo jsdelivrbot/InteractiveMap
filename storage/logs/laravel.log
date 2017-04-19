@@ -3263,3 +3263,112 @@ Stack trace:
 [2017-04-18 17:12:44] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ''id'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in D:\Projects\maplaravel\app\Http\Controllers\BuildController.php:31
 Stack trace:
 #0 {main}  
+[2017-04-19 01:49:32] production.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:55
+Stack trace:
+#0 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(55): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#2 D:\Projects\maplaravel\bootstrap\cache\compiled.php(11557): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
+#4 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(846): call_user_func(Object(Closure))
+#5 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(714): Illuminate\Database\Connection->getPdo()
+#6 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(603): Illuminate\Database\Connection->reconnectIfMissingConnection()
+#7 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(324): Illuminate\Database\Connection->run('select * from i...', Array, Object(Closure))
+#8 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Schema\MySqlBuilder.php(21): Illuminate\Database\Connection->select('select * from i...', Array)
+#9 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Migrations\DatabaseMigrationRepository.php(141): Illuminate\Database\Schema\MySqlBuilder->hasTable('migrations')
+#10 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(405): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#11 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\ResetCommand.php(61): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#12 [internal function]: Illuminate\Database\Console\Migrations\ResetCommand->fire()
+#13 D:\Projects\maplaravel\bootstrap\cache\compiled.php(1232): call_user_func_array(Array, Array)
+#14 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#15 D:\Projects\maplaravel\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 D:\Projects\maplaravel\vendor\symfony\console\Application.php(791): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 D:\Projects\maplaravel\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\ResetCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 D:\Projects\maplaravel\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 D:\Projects\maplaravel\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}  
+[2017-04-19 02:22:34] production.ERROR: exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maplaravel.buildings' doesn't exist' in D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:390
+Stack trace:
+#0 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(390): PDO->prepare('insert into `bu...')
+#1 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(644): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `bu...', Array)
+#2 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(611): Illuminate\Database\Connection->runQueryCallback('insert into `bu...', Array, Object(Closure))
+#3 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(391): Illuminate\Database\Connection->run('insert into `bu...', Array, Object(Closure))
+#4 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(347): Illuminate\Database\Connection->statement('insert into `bu...', Array)
+#5 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(32): Illuminate\Database\Connection->insert('insert into `bu...', Array)
+#6 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1889): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `bu...', Array, 'id')
+#7 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'id')
+#8 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1244): call_user_func_array(Array, Array)
+#9 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10591): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#10 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10591): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'id')
+#11 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10580): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#12 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10531): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder), Array)
+#13 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10164): Illuminate\Database\Eloquent\Model->save()
+#14 D:\Projects\maplaravel\database\seeds\DatabaseSeeder.php(59): Illuminate\Database\Eloquent\Model::create(Array)
+#15 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#16 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10864): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#17 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#18 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#19 D:\Projects\maplaravel\bootstrap\cache\compiled.php(1232): call_user_func_array(Array, Array)
+#20 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#21 D:\Projects\maplaravel\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 D:\Projects\maplaravel\vendor\symfony\console\Application.php(791): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 D:\Projects\maplaravel\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 D:\Projects\maplaravel\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 D:\Projects\maplaravel\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maplaravel.buildings' doesn't exist (SQL: insert into `buildings` (`name`, `description`, `height`, `roofcolor`, `wallcolor`, `image`, `polygon`, `updated_at`, `created_at`) values (MSU-IIT Cooperative Building, Over a decade of being an open-type cooperative, Head Office was transferred to its new home, located at MSU-IIT NMPC Bldg. Quezon Avenue Ext.,Pala-o , Iligan City, 8, #ffc17c, #b1b2ad, cooperative-building, [[
+                [ 124.24465298652649,
+                  8.23991593886458
+                ],
+                [ 124.24471199512482,
+                  8.23984692134977
+                ],
+                [ 124.24469992518425,
+                  8.239814403478054
+                ],
+                [ 124.24476563930511,
+                  8.239751358617099
+                ],
+                [ 124.24490511417389,
+                  8.239894702707462
+                ],
+                [ 124.24476563930511,
+                  8.240011501557522
+                ],
+                [ 124.24465298652649,
+                  8.23991593886458
+                ]
+                ]], 2017-04-19 02:22:34, 2017-04-19 02:22:34))' in D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:651
+Stack trace:
+#0 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(611): Illuminate\Database\Connection->runQueryCallback('insert into `bu...', Array, Object(Closure))
+#1 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(391): Illuminate\Database\Connection->run('insert into `bu...', Array, Object(Closure))
+#2 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(347): Illuminate\Database\Connection->statement('insert into `bu...', Array)
+#3 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(32): Illuminate\Database\Connection->insert('insert into `bu...', Array)
+#4 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1889): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `bu...', Array, 'id')
+#5 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'id')
+#6 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1244): call_user_func_array(Array, Array)
+#7 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10591): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#8 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10591): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'id')
+#9 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10580): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10531): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder), Array)
+#11 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10164): Illuminate\Database\Eloquent\Model->save()
+#12 D:\Projects\maplaravel\database\seeds\DatabaseSeeder.php(59): Illuminate\Database\Eloquent\Model::create(Array)
+#13 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#14 D:\Projects\maplaravel\bootstrap\cache\compiled.php(10864): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#15 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#16 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#17 D:\Projects\maplaravel\bootstrap\cache\compiled.php(1232): call_user_func_array(Array, Array)
+#18 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 D:\Projects\maplaravel\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 D:\Projects\maplaravel\vendor\symfony\console\Application.php(791): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 D:\Projects\maplaravel\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 D:\Projects\maplaravel\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 D:\Projects\maplaravel\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 D:\Projects\maplaravel\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}  

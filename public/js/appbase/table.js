@@ -66,3 +66,10 @@ TableMain.prototype.supply = function(obj) {
 	this.domObj.card.html(crd)
 	this.domObj.main.children('tbody').append(tr);
 }
+
+TableMain.prototype.reset = function() {
+	// body...
+	this.domObj.main.children('tbody').empty();
+	this.domObj.card.empty();
+	// console.log(header);
+};

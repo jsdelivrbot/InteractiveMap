@@ -5,11 +5,11 @@ var appglobal = { //required
 	map2: null, // OSM-Leaflet,
   osmb: null,
   target: null,
-  allGroup: null,
+  drawnItems: null,
   controlGroup:null,
-	buildFeature: function(obj){
+	buildFeature: function(objs){
 		var features = [];
-      $.each(obj, function(i, obj){
+      $.each(objs, function(i, obj){
         features[i] = {
           type: "Feature", 
           geometry: {
@@ -29,7 +29,6 @@ var appglobal = { //required
         type: "FeatureCollection", 
         features: features
       }
-      // console.log(xGeo,"1");
 		return xGeo 
 	}
   // ,feature: function(feature){

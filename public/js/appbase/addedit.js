@@ -5,11 +5,12 @@
 var appThis = function(){
 	var table = new TableMain('tablebuild')
 	// var mainmap;
-	// console.log(table.domObj)
- 	// $.getJSON('query/buildingquery.json',function(json){ //just sample.. query or ajax function starts here
+
+ 	//just sample.. query or ajax function starts here
+ 	// $.getJSON('query/buildingquery.json',function(json){ 
  	// 	appglobal.queried = json;
-  //     table.supply(json);
-  //     console.log('called sample query',json)
+	//	table.supply(json);
+	//	console.log('called sample query',json)
  	// }); //ends sample function
 
  	$.ajax({
@@ -45,17 +46,18 @@ var appThis = function(){
 			layout = $(this).closest('tr')
 			id = layout.children()[0].innerHTML
 		}
-	    var obj=table.buildObjs[id-1]
+	    // var obj=table.buildObjs[id-1]
 		var modal =$('#addBuild')
-		modifyModal(modal,obj,table)
+		modifyModal(modal,id)
 	})
 
 
 	// 
 	$('#addButton').on('click',function(){
-		var addobj;
+		// var addobj;
 		var modal =$('#addBuild')
-		modifyModal(modal,null,table)
+		modifyModal(modal)
+		// table.reset();
 	})
 
 } //end appThis
@@ -63,8 +65,19 @@ var appThis = function(){
 $(document).ready(appThis)
 
 //reform this modal
-function modifyModal(modal,obj,table){
+function modifyModal(modal,id){
 	// var bodystate = true
+	$.ajax({
+      type: 'GET',
+      dataType: 'JSON',
+      url: '/b/'+id,
+      success: function(building){
+  //     	appglobal.queried = buildings;
+		// table.supply(buildings);
+		console.log('editing',building)
+		// appglobal.drawnItems;
+	    }
+    });
 
 	modal.on('show.bs.modal',function(e){ //process modal text data //set height and color
 		$("#height").val(defaultBuilding.height)
@@ -72,33 +85,38 @@ function modifyModal(modal,obj,table){
 		$("#roofcolor").val(defaultBuilding.roofcolor)
 	}).on('shown.bs.modal',function(e){ //process map on modal
 		if(appglobal.map2==undefined){
-			var posObj; // object position of building
-			maphandler.init(posObj)
+			maphandler.init()
 		}
-		maphandler.addOSM(appglobal.buildFeature(appglobal.queried)) //add all osm to map. //should add all except(only if edit) target osm to map
+		var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
+		maphandler.addOSM(osm) //should add all except(only if edit) target osm to map
 
 		maphandler.initControls() //initiate controls on target osm, null if add
 
 		$('.colorpicker-component').colorpicker();
 
 		// console.log(appglobal.map2)
-	}).on('hidden.bs.modal',function(e){
-			// console.log('closed',e)
-			//complete info here.
-			// Post addobj
-			// $('#buildform').form()
-			// console.log($('#buildform'))
-			// var s = $('#buildform').form("get fields");
-		// console.log(s);
 	})
+	// .on('hidden.bs.modal',function(e){
+
+	// })
 	.modal()
-	// $('#postSubmit').addClass("disabled")
 
-	function checkValues(){
+ 	// $.ajax({
+  //     type: 'GET',
+  //     dataType: 'JSON',
+  //     url: '/b/'+id,
+  //     success: function(building){
+  // //     	appglobal.queried = building;
+		// // table.supply(building);
+		// console.log(building)
+	 //    }
+  //   });
 
-	}
+	// function checkValues(){
 
-	$('#postSubmit').on('click',function(){
+	// }
+
+	$('#postSubmit').on('click',function(){ //validations here
 		var name = $('input[name=name]'),
 			area;
 		console.log('summited',this);
@@ -119,7 +137,10 @@ function modifyModal(modal,obj,table){
    //          }
    //      });
 	})
-}
+
+
+
+} //end modal
 
 /*
 	Uses OSMBuildings 2.5D
@@ -131,7 +152,7 @@ var str = 'map_build'
 	// targetobj //object still visible.
 
 maphandler = {
-	init:function(obj){
+	init:function(){
 		if(appglobal.map2!=null){
 			//do obj here instead
 			return;
@@ -185,12 +206,12 @@ maphandler = {
 		  appglobal.osmb.set(geoJson);
 		}
 
-		var drawnItems = new L.FeatureGroup();
-     		appglobal.map2.addLayer(drawnItems);
+		appglobal.drawnItems = new L.FeatureGroup();
+     		appglobal.map2.addLayer(appglobal.drawnItems);
 
-     		console.log(drawnItems); 
+     		console.log(appglobal.drawnItems); 
 
-     	var tentObj = new OSMBuildings()
+     	// var tentObj = new OSMBuildings()
      		//Other controls
      	// var tentControl = L.control.layers({},{'Leaflet polygon':drawnItems,"Osm Object":tentObj},{ position: 'topleft', collapsed: false }).addTo(appglobal.map2);
      	// console.log(tentControl)
@@ -212,7 +233,7 @@ maphandler = {
 		      marker: false
 		    },
 		    edit:{
-		    	featureGroup: drawnItems
+		    	featureGroup: appglobal.drawnItems
 		    }
 		});
 
@@ -234,10 +255,12 @@ maphandler = {
 	    	$('#area').html(c)
 		}
 			
-			appglobal.map2.addControl(appglobal.controlGroup);
-		  // console.log(drawControl)
+		appglobal.map2.addControl(appglobal.controlGroup);
 
-		  appglobal.map2.on('draw:created', function (e) {
+		  /*
+			Controls Events
+		  */
+		appglobal.map2.on('draw:created', function (e) {
 		  	if(appglobal.target!=null){
 		  		return
 		  	}
@@ -246,30 +269,29 @@ maphandler = {
 		    if(e.layerType =="polygon"){
 			    drawInfos(e.layer);
 		    	e.layer.TargetBuilding = "this";
-		    	drawnItems.addLayer(e.layer); //not geoJson atm.
+		    	appglobal.drawnItems.addLayer(e.layer); //not geoJson atm.
 		    }
 		    // setGeoJson();
-		  }).on('draw:edited',function(e){
+		}).on('draw:edited',function(e){
 		  	// console.log("done edit",e)
 				e.layers.eachLayer(function(layer){
 					drawInfos(layer)
 				});
 
-		  }).on('draw:editstart',function(e){
+		}).on('draw:editstart',function(e){
 		  	// console.log("start edit",e)
-		  }).on('draw:deleted',function(e){
+		}).on('draw:deleted',function(e){
 		  	// console.log("deleted a layer",e)
 		  	$('#polygon').val('');
 		  	$('#area_').val('');
 		  	e.layers.eachLayer(function(layer){
 			  	if(layer.TargetBuilding=="this"){
-			  		// console.log("feature deleted")
 			  		var c = "Building removed. Must create new."
 					$('#area').html(c)
 			  		appglobal.target = null;
 			  	}
 			});
-		  })
+		})
 		  // .on('click',function(e){
 		  // 	console.log("check map",this)
 		  // })

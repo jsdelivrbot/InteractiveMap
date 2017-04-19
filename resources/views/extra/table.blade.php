@@ -20,11 +20,14 @@
 
         <div class="box-body">
         <table class="table table-bordered table-condensed" id='tablebuild'>
+          <thead>
             <tr>
               <th style="width: 10px">#</th>
               <th>Building</th>
               <th style="width: 650px">Description</th>
             </tr>
+          </thead>
+          <tbody></tbody>
           </table>
           <div id="cardbuild" hidden>
             <div class="msc col-sm-3">

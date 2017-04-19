@@ -17,6 +17,7 @@ class CreateBuildingTable extends Migration
             $table->string('name', 255);
             $table->longText('description');
             $table->smallInteger('height')->unsigned();
+            $table->integer('area')->unsigned();
             $table->string('roofcolor',7);
             $table->string('wallcolor',7);
             $table->string('image',70);
