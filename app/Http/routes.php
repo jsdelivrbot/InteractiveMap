@@ -37,8 +37,22 @@ Route::get('/b/{id}', 'BuildController@bID');
 
 Route::get('/b/not/{id}', 'BuildController@notId');
 
+Route::get('/search/{string}','BuildController@search');
+// Route::get('search',
+// 	array('as' => 'search', 'uses'=>'BuildController@search')
+// 	);
+
+// Route::get('/autocomplete','BuildController@search');
+
+Route::get('/autocomplete','BuildController@autocomplete');
+// 	'as' => 'autocomplete', 
+// 	'uses'=>'BuildController@autocomplete'
+// 	);
 
 
+// Route::get('/results',function(){
+// 	return $_GET;
+// });
 // Route::get('/logout', function () {
 //     return view('settings');
 // });

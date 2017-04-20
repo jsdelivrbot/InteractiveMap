@@ -12,19 +12,10 @@ var appThis = function(){
 		$('#b-img').show()
  	}
 
- 	// $.getJSON('http://localhost:8000/query/buildingquery.json',function(json){ //just sample.. query or ajax function starts here
- 	// 	appglobal.queried = json;
-		// table.supply(json);
-  //     // console.log(json)
-  //    	if(appglobal.map!=undefined){
-		// 	// var posObj; // object position of building
-		// 	// maphandler.init(posObj,false) //disables the map controls
-		// 	maphandler.addOSM(appglobal.buildFeature(appglobal.queried))
-		// }
-		// // maphandler.setControl()
- 	// }); //ends sample function
+ 	// console.log(
+ 	// 	)
 
- 	 $.ajax({
+ 	$.ajax({
       type: 'GET',
       dataType: 'JSON',
       url: '/b',
@@ -37,8 +28,44 @@ var appThis = function(){
 	  }
     });
 
-	// console.log("hello?","{{ asset('/query/buildingquery.json') }}")
- 	// console.log(appglobal.queried,appglobal.map)
+ 	sampleName = [{id:1,name:"whoisthis"},{id:2,name:'areyouhere'}];
+
+ 	appglobal.search = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  prefetch: '/b',
+	  remote: {
+	    url: '/b'
+	  }
+ 	})
+
+
+$('#typeahead').typeahead({
+  minLength: 0
+  // ,highlight: true
+},
+{
+  // name: 'sampleName',
+  source: function(q,process){
+  	// console.log(q,process);
+  	return $.get('/autocomplete',{query:q},function(data){
+  		console.log("queried",data);
+  		table.reset();
+  		table.supply(data);
+  		// return process(data);
+  	})
+    // });
+  	// console.log(results)
+  },
+  // display:function(q,x,y){
+  // 	console.log(q,x,y);
+  // },
+  templates: {
+  	suggestion: function(x){
+	  	console.log(x, this);
+	}
+  }
+});
 
  	// $('.sidebar-toggle').on('click',function(){
  	// 	console.log('clicked')

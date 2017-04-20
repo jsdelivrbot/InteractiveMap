@@ -4,6 +4,7 @@ var appglobal = { //required
 	map:null, //OSM 3D
 	map2: null, // OSM-Leaflet,
   osmb: null,
+  search: null,
   target: null,
   drawnItems: null,
   controlGroup:null,

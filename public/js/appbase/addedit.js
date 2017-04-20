@@ -66,17 +66,41 @@ $(document).ready(appThis)
 
 //reform this modal
 function modifyModal(modal,id){
-	// var bodystate = true
+	var target,
+		others;
 	$.ajax({
       type: 'GET',
       dataType: 'JSON',
       url: '/b/'+id,
       success: function(building){
-  //     	appglobal.queried = buildings;
-		// table.supply(buildings);
-		console.log('editing',building)
-		// appglobal.drawnItems;
-	    }
+		// console.log('target')
+		// target = appglobal.buildFeature(building);
+		target = {
+                type: "Feature", 
+                geometry: {
+                  type: "Polygon",
+                  coordinates:  JSON.parse("" + building.polygon +"")
+                },
+                properties: {
+                  id:  building.id,
+                  name:  building.name,
+                  roofColor: building.roofcolor,
+                  height: building.height,
+                  wallColor: building.wallcolor
+                }
+            }
+	  }
+    });
+
+    $.ajax({
+      type: 'GET',
+      dataType: 'JSON',
+      url: '/b/not/'+id,
+      success: function(buildings){
+		// console.log('other',buildings)
+		others = appglobal.buildFeature(buildings);
+		// console.log('others',others)
+	  }
     });
 
 	modal.on('show.bs.modal',function(e){ //process modal text data //set height and color
@@ -87,10 +111,13 @@ function modifyModal(modal,id){
 		if(appglobal.map2==undefined){
 			maphandler.init()
 		}
-		var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
-		maphandler.addOSM(osm) //should add all except(only if edit) target osm to map
+		// var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
+		maphandler.addOSM(others) //should add all except(only if edit) target osm to map
+		console.log(appglobal.osmb);
 
 		maphandler.initControls() //initiate controls on target osm, null if add
+
+		maphandler.setTarget(target)
 
 		$('.colorpicker-component').colorpicker();
 
@@ -100,17 +127,6 @@ function modifyModal(modal,id){
 
 	// })
 	.modal()
-
- 	// $.ajax({
-  //     type: 'GET',
-  //     dataType: 'JSON',
-  //     url: '/b/'+id,
-  //     success: function(building){
-  // //     	appglobal.queried = building;
-		// // table.supply(building);
-		// console.log(building)
-	 //    }
-  //   });
 
 	// function checkValues(){
 
@@ -237,23 +253,7 @@ maphandler = {
 		    }
 		});
 
-		function drawInfos(layer){
-			coordinates = [];
-			latlngs = appglobal.target.getLatLngs();
-		    for (var i = 0; i < latlngs.length; i++) {
-		        coordinates.push([latlngs[i].lng, latlngs[i].lat])
-		    }
-			coordinates.splice((latlngs.length + 1), 0, [latlngs[0].lng, latlngs[0].lat]); 
-			var coordinates_result = JSON.stringify(coordinates); //were as polyline
-			var final_result = "[" + coordinates_result +  "]"; //treat as polygon
-			$('#polygon').val(final_result);
 
-	    	var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
-	    	var c = "<strong>"+ seeArea.toFixed(2) +"</strong> Meters sq."
-	    	$('#area_').val(seeArea.toFixed(2));
-
-	    	$('#area').html(c)
-		}
 			
 		appglobal.map2.addControl(appglobal.controlGroup);
 
@@ -296,8 +296,40 @@ maphandler = {
 		  // 	console.log("check map",this)
 		  // })
 		  ;
+	},setTarget:function(t){
+		appglobal.drawnItems.clearLayers();
+
+		L.geoJson(t, {
+          onEachFeature: function (feature, layer) {
+            appglobal.drawnItems.addLayer(layer);
+          	appglobal.target = layer;
+          	drawInfos(layer);
+          }
+        });
+
+		// appglobal.drawnItems.addLayer(t)
 	}
 	
+}
+
+
+//extra
+function drawInfos(layer){
+	coordinates = [];
+	latlngs = appglobal.target.getLatLngs();
+    for (var i = 0; i < latlngs.length; i++) {
+        coordinates.push([latlngs[i].lng, latlngs[i].lat])
+    }
+	coordinates.splice((latlngs.length + 1), 0, [latlngs[0].lng, latlngs[0].lat]); 
+	var coordinates_result = JSON.stringify(coordinates); //were as polyline
+	var final_result = "[" + coordinates_result +  "]"; //treat as polygon
+	$('#polygon').val(final_result);
+
+	var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
+	var c = "<strong>"+ seeArea.toFixed(2) +"</strong> Meters sq."
+	$('#area_').val(seeArea.toFixed(2));
+
+	$('#area').html(c)
 }
 
 

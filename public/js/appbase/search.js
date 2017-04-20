@@ -1,0 +1,3 @@
+$.fn.searchBar = function(){
+	
+}
