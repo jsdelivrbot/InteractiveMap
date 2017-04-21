@@ -21,6 +21,7 @@ Route::get('/index', function () {
 
 Route::post('/verify', function () {
     return $_POST; //change later
+    // redirect('buildings');
 });
 
 Route::get('/landing', function () {
@@ -37,18 +38,29 @@ Route::get('/b/{id}', 'BuildController@bID');
 
 Route::get('/b/not/{id}', 'BuildController@notId');
 
-Route::get('/search/{string}','BuildController@search');
+Route::get('/search/{string}','BuildController@search'); //just to debug search scripts
 // Route::get('search',
 // 	array('as' => 'search', 'uses'=>'BuildController@search')
 // 	);
 
 // Route::get('/autocomplete','BuildController@search');
 
-Route::get('/autocomplete','BuildController@autocomplete');
+Route::get('/autocomplete','BuildController@autocomplete'); //doesn't give descriptions :(
 // 	'as' => 'autocomplete', 
 // 	'uses'=>'BuildController@autocomplete'
 // 	);
 
+// Route::resource('/modify', 'BuildController');
+
+Route::post('/modify/added','BuildController@create');// create
+Route::post('/modify/update/{id}','BuildController@update'); //update
+
+// Route::post('/modify/update/{id}/', function () {
+//     return $_POST; //change later
+//     // return redirect('buildings');
+// });
+
+Route::delete('/modify/removed', 'BuildController@destroy'); //destroy
 
 // Route::get('/results',function(){
 // 	return $_GET;

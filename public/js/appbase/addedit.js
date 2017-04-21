@@ -23,6 +23,30 @@ var appThis = function(){
 	    }
     });
 
+    $('#typeahead').typeahead({
+	  minLength: 0
+	  // ,highlight: true
+	  ,classNames: {
+	  	input:''
+	  }
+	},
+	{
+	  // name: 'sampleName',
+	  source: function(q,process){
+	  	// console.log(q,process);
+	  	return $.get('/autocomplete',{query:q},function(data){
+	  		console.log("queried",data,q);
+	  		table.reset();
+	  		table.supply(data);
+	  	})
+	  },
+	  templates: {
+	  	suggestion: function(x){
+		  	console.log('im suggesting',x, this); //never works. :(
+		}
+	  }
+	});
+
  	// console.log(table.buildObjs);
  	$('#cardlist,#tablelist').on('click', function(){
  		if($(this).hasClass('disabled')){
@@ -48,6 +72,10 @@ var appThis = function(){
 		}
 	    // var obj=table.buildObjs[id-1]
 		var modal =$('#addBuild')
+		// var x = 'modify/update/'+id+'';
+		// console.log(x);
+		// $('#buildform').attr('action', x)
+		// $('#buildform').attr('method', 'get')
 		modifyModal(modal,id)
 	})
 
@@ -56,6 +84,7 @@ var appThis = function(){
 	$('#addButton').on('click',function(){
 		// var addobj;
 		var modal =$('#addBuild')
+		// $('#buildform').attr('action','modify/added')
 		modifyModal(modal)
 		// table.reset();
 	})
@@ -108,6 +137,15 @@ function modifyModal(modal,id){
 		$("#wallcolor").val(defaultBuilding.wallcolor)
 		$("#roofcolor").val(defaultBuilding.roofcolor)
 	}).on('shown.bs.modal',function(e){ //process map on modal
+		if(id!=null){
+			$('#buildform').attr('action','modify/update/'+id+'/')
+			// $('#buildform').attr('action','verify')
+
+		} else {
+			$('#buildform').attr('action','modify/added')
+
+		}
+
 		if(appglobal.map2==undefined){
 			maphandler.init()
 		}

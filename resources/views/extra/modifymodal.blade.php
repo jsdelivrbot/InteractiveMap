@@ -18,7 +18,7 @@
               </div>
               <div class="box-body">
 
-                <form action="verify" method="post" id="buildform">
+                <form action="modify/add" method="post" id="buildform">
                   <div class="row">
                     <div class="col-sm-8">
                       <div class="form-group field">
@@ -55,7 +55,7 @@
                   <h6 class="text-muted"></h6>
                   <div class="form-group">
                     <label for="name">Description</label>
-                    <textarea class="form-control" name="desc" class="form-control input-sm" id="desc" placeholder="Tell history, use, etc." rows="3"></textarea>
+                    <textarea class="form-control" name="description" class="form-control input-sm" id="desc" placeholder="Tell history, use, etc." rows="3"></textarea>
                   </div>
 
                   <div>

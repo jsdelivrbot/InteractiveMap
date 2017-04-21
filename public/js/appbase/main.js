@@ -30,39 +30,36 @@ var appThis = function(){
 
  	sampleName = [{id:1,name:"whoisthis"},{id:2,name:'areyouhere'}];
 
- 	appglobal.search = new Bloodhound({
-	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  prefetch: '/b',
-	  remote: {
-	    url: '/b'
-	  }
- 	})
+ 	// appglobal.search = new Bloodhound({
+	 //  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	 //  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	 //  prefetch: '/b',
+	 //  remote: {
+	 //    url: '/b'
+	 //  }
+ 	// })
 
 
 $('#typeahead').typeahead({
   minLength: 0
   // ,highlight: true
+  ,classNames: {
+  	input:''
+  }
 },
 {
   // name: 'sampleName',
   source: function(q,process){
   	// console.log(q,process);
   	return $.get('/autocomplete',{query:q},function(data){
-  		console.log("queried",data);
+  		console.log("queried",data,q);
   		table.reset();
   		table.supply(data);
-  		// return process(data);
   	})
-    // });
-  	// console.log(results)
   },
-  // display:function(q,x,y){
-  // 	console.log(q,x,y);
-  // },
   templates: {
   	suggestion: function(x){
-	  	console.log(x, this);
+	  	console.log('im suggesting',x, this); //never works. :(
 	}
   }
 });
