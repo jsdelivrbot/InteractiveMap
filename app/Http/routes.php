@@ -50,17 +50,40 @@ Route::get('/autocomplete','BuildController@autocomplete'); //doesn't give descr
 // 	'uses'=>'BuildController@autocomplete'
 // 	);
 
-// Route::resource('/modify', 'BuildController');
+// Route::post('/modify/added','BuildController@create');// create
+// Route::post('/modify/update/{id}','BuildController@update'); //update
+// Route::delete('/modify/removed', 'BuildController@destroy'); //destroy
 
-Route::post('/modify/added','BuildController@create');// create
-Route::post('/modify/update/{id}','BuildController@update'); //update
+// Route::get('/buildimgs/{name}', 'BuildController@findImg');
+// Route::get('storage/{filename}', function ($filename)
+// {
+//     $path = storage_path('public/' . $filename);
 
-// Route::post('/modify/update/{id}/', function () {
-//     return $_POST; //change later
-//     // return redirect('buildings');
+//     if (!File::exists($path)) {
+//         echo "not found";
+//         abort(404);
+//     }
+
+//     $file = File::get($path);
+//     $type = File::mimeType($path);
+
+//     $response = Response::make($file, 200);
+//     $response->header("Content-Type", $type);
+
+//     return $response;
 // });
+Route::get('/test',function(){
+    return view('test');
+});
 
-Route::delete('/modify/removed', 'BuildController@destroy'); //destroy
+Route::get('/buildimgs/{name}', [
+    'uses' => 'BuildController@findImg',
+    'as' => 'build.image'
+]);
+
+Route::post('/modify/added','BuildController@debug');// create
+Route::post('/modify/update/{id}','BuildController@debug'); //update
+Route::delete('/modify/removed', 'BuildController@debug'); //destroy
 
 // Route::get('/results',function(){
 // 	return $_GET;

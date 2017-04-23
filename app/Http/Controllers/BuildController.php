@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage as Storage;
+// use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use DB;
 
@@ -77,18 +81,8 @@ class BuildController extends Controller
         return redirect('buildings');
     }
 
-    function showModify($id){ //not really needed. //if clicked on
-        // return redirect('buildings');
-        return view('pages.modify');
-    }
-
-    // function store(){
-    //     return view('pages.modify');
-    // }
-
     function update($id,Request $request){
-        // echo $id;
-        // echo $request;
+
         $building = Building::findOrFail($id);
         $building->update($request->all());
         return redirect('modify');
@@ -99,8 +93,31 @@ class BuildController extends Controller
         return redirect('modify');
     }
 
-    // function edit(){
+    function debug(Request $request){ //problem here
+        $img = $request->file('file');
+        // $name = $request->input('name');
+        // $image = File::make(Storage::get($img));
+        // echo Storage::get('chicken.jpg');
 
-    // }
+        if(File::isFile($img)){
+            echo 'Something here';
+            echo $request->input('file');
+            // echo basename($img);
+            /*
+                dont delete next
+            */
+            //Storage::disk('local')->put('id.jpg', File::get($img)); //works with (enctype="multipart/form-data") attribute to target form
+        } else {
+            echo 'nothing here. :(';
+            // echo $request .'<br>'. $img;
+        }
+
+    }
+
+    function findImg($name){
+        $file = Storage::disk('local')->get($name);
+        return new Response($file, 200);
+    }
+
 
 }

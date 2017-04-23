@@ -18,7 +18,7 @@
               </div>
               <div class="box-body">
 
-                <form action="modify/add" method="post" id="buildform">
+                <form action="modify/add" method="post" id="buildform" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-sm-8">
                       <div class="form-group field">
@@ -57,8 +57,12 @@
                     <label for="name">Description</label>
                     <textarea class="form-control" name="description" class="form-control input-sm" id="desc" placeholder="Tell history, use, etc." rows="3"></textarea>
                   </div>
+                  <div class="form-group">
+                    <label for="file">Building image**</label>
+                    <input type="file" name='file' id="file">
+                  </div>
 
-                  <div>
+                  <div hidden>
                     <textarea class="form-control" name="polygon" class="form-control input-sm" id="polygon" placeholder="polygon" rows="3"></textarea>
                     <input type="text" class="form-control input-sm" name="area" id="area_" placeholder="area">
                   </div>
@@ -75,7 +79,7 @@
                 </form>
               </div>
               <div class="box-footer">
-                <h6 class="text-muted">*Colors will be shown on front pages.<br>All other variables are hidden but collected for storage.<br>3D Building will initiate after submitting form.</h6>
+                <h6 class="text-muted">*Colors will be shown on front pages.<br>**Single image at the moment.<br>All other variables are hidden but collected for storage.<br>3D Building will initiate after submitting form.</h6>
               </div>
             </div>
           </div>

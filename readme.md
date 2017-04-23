@@ -43,9 +43,9 @@ Note: branches are separated based on versions.
 3. maintainable site
 
 ### Notes ###
-1. Separate search functionality as laravel component/plugin.
+1. Separate search functionality as laravel component/plugin. (optional since it relies on js script)
 2. Correct/Establish responsive UI in components with map interfaces since they bug out the most.
-3. Add additional data(polygon areas) to display area.
+3. Add additional data(polygon areas) to forms and data modals to display area.
 4. Introduce filesystem for images. Possibly, for complex user-created 3D buildings, might require specific file extension: (*.obj).
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
