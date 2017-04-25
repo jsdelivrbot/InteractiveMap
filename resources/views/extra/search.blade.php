@@ -49,7 +49,7 @@
 		{
 		  source: function(q,process){
 		  	// console.log(q,process);
-		  	return $.get('/autocomplete',{query:q},function(data){
+		  	return $.get('/search',{query:q},function(data){
 		  		console.log("queried",data,q);
 		  		// table.reset();
 		  		// table.supply(data);
@@ -91,9 +91,16 @@
 			$('.box.search').on('click','.media',function(){
 				var id=$(this).attr('id');
 				// var modal =$('#buildModal')
-				var obj=table.buildObjs[id-1];
-				var modal =$('#buildModal')
-				modifyModal(modal,obj)
+				var obj;
+
+				$.get('/b/'+id,function(data){
+		  			// console.log(data)
+		  			obj = data;
+					var modal =$('#buildModal')
+					obj.srcstring = "{{ route('build.image',['name' => 'image.jpg']) }}"
+					modifyModal(modal,obj)
+		  		})
+
 				$('#results').hide(200);
 			})
 			// $('#results').hide();

@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'height' => 8,
             'roofcolor' => '#ffc17c',
             'wallcolor' => '#b1b2ad',
-            'image' => 'cooperative-building',
+            'keyname' => 'cooperative-building',
             'polygon' => '[[
                 [ 124.24465298652649,
                   8.23991593886458
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc17c',
             'wallcolor' => '#ffe5c9',
-            'image' => 'institute-library-building',
+            'keyname' => 'institute-library-building',
             'polygon' => '[
               [
                 [
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc17c',
             'wallcolor' => '#ffe5c9',
-            'image' => 'ids-mph-building',
+            'keyname' => 'ids-mph-building',
             'polygon' => '[
               [
                 [
@@ -154,7 +154,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -187,7 +187,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -220,7 +220,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -253,7 +253,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -286,7 +286,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -319,7 +319,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ids-building',
+            'keyname' => 'ids-building',
             'polygon' => '[
               [
                 [
@@ -352,7 +352,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'scs-building',
+            'keyname' => 'scs-building',
             'polygon' => '[
               [
                 [
@@ -385,7 +385,7 @@ class DatabaseSeeder extends Seeder
             'height' => 8,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'cass-building',
+            'keyname' => 'cass-building',
             'polygon' => '[
               [
                 [
@@ -486,7 +486,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'cbaa-building',
+            'keyname' => 'cbaa-building',
             'polygon' => '[
               [
                 [
@@ -583,7 +583,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#db8047',
             'wallcolor' => '#db8047',
-            'image' => 'set-building',
+            'keyname' => 'set-building',
             'polygon' => '[
               [
                 [
@@ -624,7 +624,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#e07c7c',
             'wallcolor' => '#999897',
-            'image' => 'scs-building',
+            'keyname' => 'scs-building',
             'polygon' => ' [
               [
                 [
@@ -657,7 +657,7 @@ class DatabaseSeeder extends Seeder
             'height' => 10,
             'roofcolor' => '#ffc17c',
             'wallcolor' => '#ffe5c9',
-            'image' => 'scs-building',
+            'keyname' => 'scs-building',
             'polygon' => '[
               [
                 [
@@ -690,7 +690,7 @@ class DatabaseSeeder extends Seeder
             'height' => 8,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#9e9e9e',
-            'image' => 'csm-building',
+            'keyname' => 'csm-building',
             'polygon' => '[
               [
                 [
@@ -775,7 +775,7 @@ class DatabaseSeeder extends Seeder
             'height' => 10,
             'roofcolor' => '#c9c9c9',
             'wallcolor' => '#bfbbaf',
-            'image' => 'coe-building',
+            'keyname' => 'coe-building',
             'polygon' => '[
               [
                 [
@@ -832,7 +832,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'coe-building',
+            'keyname' => 'coe-building',
             'polygon' => '[
               [
                 [
@@ -869,7 +869,7 @@ class DatabaseSeeder extends Seeder
             'height' => 10,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'con-building',
+            'keyname' => 'con-building',
             'polygon' => '[
               [
                 [
@@ -962,7 +962,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'cbaa-building',
+            'keyname' => 'cbaa-building',
             'polygon' => ' [
               [
                 [
@@ -1019,7 +1019,7 @@ class DatabaseSeeder extends Seeder
             'height' => 10,
             'roofcolor' => '#db8047',
             'wallcolor' => '#f3e9ce',
-            'image' => 'gym-building',
+            'keyname' => 'gym-building',
             'polygon' => '[
               [
                 [
@@ -1068,7 +1068,7 @@ class DatabaseSeeder extends Seeder
             'height' => 8,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ced-building',
+            'keyname' => 'ced-building',
             'polygon' => '[
               [
                 [
@@ -1157,7 +1157,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'clinic-building',
+            'keyname' => 'clinic-building',
             'polygon' => '[
               [
                 [
@@ -1190,7 +1190,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'security-building',
+            'keyname' => 'security-building',
             'polygon' => '[
               [
                 [
@@ -1227,7 +1227,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'scs-building',
+            'keyname' => 'scs-building',
             'polygon' => '[
               [
                 [
@@ -1264,7 +1264,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'administration-building',
+            'keyname' => 'administration-building',
             'polygon' => '[
               [
                 [
@@ -1297,7 +1297,7 @@ class DatabaseSeeder extends Seeder
             'height' => 8,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#b5b5b5',
-            'image' => 'bahay-alumni-building',
+            'keyname' => 'bahay-alumni-building',
             'polygon' => '[
               [
                 [
@@ -1354,7 +1354,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'alumni-office-building',
+            'keyname' => 'alumni-office-building',
             'polygon' => ' [
               [
                 [
@@ -1387,7 +1387,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ipdm-building',
+            'keyname' => 'ipdm-building',
             'polygon' => '[
               [
                 [
@@ -1428,7 +1428,7 @@ class DatabaseSeeder extends Seeder
             'height' => 4,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'ced-building',
+            'keyname' => 'ced-building',
             'polygon' => '[
               [
                 [
@@ -1461,7 +1461,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'hostel-building',
+            'keyname' => 'hostel-building',
             'polygon' => '[[
                 [
                     124.24320325255393,
@@ -1492,7 +1492,7 @@ class DatabaseSeeder extends Seeder
             'height' => 6,
             'roofcolor' => '#ffc27c',
             'wallcolor' => '#ffe6c9',
-            'image' => 'offices-building',
+            'keyname' => 'offices-building',
             'polygon' => '[[
                 [
                     124.24310225062072,

@@ -20,8 +20,8 @@
       width: 100% !important;
     }
     .imgmini {
-        max-height: 70px;
-        max-width: 70px;
+        height: 70px;
+        width: 70px;
     }
     .desc {
       display: block;/* required for overflow*/

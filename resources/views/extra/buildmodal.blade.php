@@ -29,7 +29,7 @@
                     z-index: 1;">
                 </div>
                 <div id="b-img" hidden>
-                  <img src="../map-here.png" style="z-index: 2; position: relative;">
+                  <img id='frontImg' src="../map-here.png" style="max-height:700px ;max-width: 400px; z-index: 2; position: relative;">
                 </div>
               </div>
               <div class="box box-default" hidden>

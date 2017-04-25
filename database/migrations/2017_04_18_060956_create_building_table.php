@@ -15,6 +15,7 @@ class CreateBuildingTable extends Migration
         Schema::create('buildings', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name', 255);
+            $table->string('keyname', 255);
             $table->longText('description');
             $table->smallInteger('height')->unsigned();
             $table->integer('area')->unsigned();

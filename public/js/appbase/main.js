@@ -122,6 +122,14 @@ function modifyModal(modal,obj){
 		}
 	}
 
+	if(obj.srcstring){
+		obj.srcstring = obj.srcstring.replace('image.jpg', obj.keyname+'.jpg')
+		$('#frontImg').attr('src',obj.srcstring);
+	} else {
+		$('#frontImg').attr('src','http://localhost:8000/buildimgs/'+ obj.keyname +'.jpg');
+	}
+	console.log(obj.srcstring);
+
 	var bodystate = true
 	modal.on('show.bs.modal',function(e){ //process modal text data
 		var bodydetails = modal.find('.body1')

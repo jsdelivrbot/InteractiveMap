@@ -151,6 +151,7 @@ function modifyModal(modal,id){
 		// $('#polygon').val();
 		// $('#area_').val();
     	console.log(obj);
+    	$('#deletebutton').show();
 	} else {
 		console.log('id missing, default form');
 		$('#buildform').attr('action','modify/added')
@@ -164,6 +165,7 @@ function modifyModal(modal,id){
 		$('#desc').empty();
 		$('#polygon').empty();
 		$('#area_').empty();
+		$('#deletebutton').hide();
 	}
 	
 	modal
@@ -190,25 +192,14 @@ function modifyModal(modal,id){
 	$('#postSubmit').on('click',function(){ //Use this for empty polygon
 		var name = $('input[name=name]'),
 			area;
-		// console.log('summited',this);
-
-		// return false;
-
-		// $.post('/verify',{poly:'this'}).done(function(d){
-		// 	alert('Data:'+ d);
-		// })
-
-		 // $.ajax({
-   //          type: "POST",
-   //          url:'/bSumbit',
-   //          // data: {title: title, body: body, published_at: published_at},
-   //          success: function( msg ) {
-   //          	console.log(msg)
-   //              // $("#ajaxResponse").append("<div>"+msg+"</div>");
-   //          }
-   //      });
 	})
 
+
+	$('#deletebutton').on('click',function(){
+		// $('#buildform').attr('method','method_')
+		$('#buildform').attr('action','modify/remove/'+id+'/')
+		// $('#buildform').submit()
+	})
 
 
 } //end modal

@@ -41,30 +41,58 @@ class BuildController extends Controller
     	 return $buildings;
     }
 
-    function search($string){
-    	// $string = Request::get('search');
+    function search(Request $request){
+        $string = $request->input('query');
         // return view('search')
         // return $string;
 
     	$buildings = DB::table('buildings')
 		  		->where('name', 'LIKE', '%' . $string . '%')
-		  		->where('description', 'LIKE', '%' . $string . '%')
-		  			->paginate(5);
+		  			->get();
 
-  //   	// $result = Request::input('search');
+        if(sizeof($buildings) > 0){
+            return $buildings;
+        }
+
+        $buildings = DB::table('buildings')
+                ->where('description', 'LIKE', '%' . $string . '%')
+                    ->get();
+
+        if(sizeof($buildings) > 0){
+            return $buildings;
+        }
+
+        $buildings = DB::table('buildings')
+                ->where('keyname', 'LIKE', '%' . $string . '%')
+                    ->get();
 		return $buildings;
-        // $hasCoffeeMachine = Request::get('hasCoffeeMachine');
     }
 
     function autocomplete(Request $request){
-        $text = $request->input('query');
-        $data = DB::table('buildings')
-                ->where('name', 'LIKE', '%' . $text . '%')
-                ->where('description', 'LIKE', '%' . $text . '%')
+        $string = $request->input('query');
+        // return view('search')
+        // return $string;
+
+        $buildings = DB::table('buildings')
+                ->where('name', 'LIKE', '%' . $string . '%')
                     ->get();
-        return $data;
-        // return $request->input('query');
-        // return response()->json($data);
+
+        if(sizeof($buildings) > 0){
+            return $buildings;
+        }
+
+        $buildings = DB::table('buildings')
+                ->where('description', 'LIKE', '%' . $string . '%')
+                    ->get();
+
+        if(sizeof($buildings) > 0){
+            return $buildings;
+        }
+
+        $buildings = DB::table('buildings')
+                ->where('keyname', 'LIKE', '%' . $string . '%')
+                    ->get();
+        return $buildings;
     }
 
 
@@ -77,21 +105,48 @@ class BuildController extends Controller
     // }
 
     function create(Request $request){
-        // $keyname = $request->input('keyname');
+        $keyname = $request->input('keyname');
         // Add other things here.
+        $img = $request->file('file');
+
+        if(File::isFile($img)){
+            Storage::disk('local')->put($keyname.'.jpg', File::get($img)); //works with (enctype="multipart/form-data") attribute to target form
+        }
+
         Building::create($request->all());
         return redirect('buildings');
     }
 
     function update($id,Request $request){
-
         $building = Building::findOrFail($id);
+        $oldkeyname = $building->keyname .'.jpg'; //old filename
+
+        $keyname = $request->keyname .'.jpg'; //new filename
+        $img = $request->file('file');
+        $update = false;
+
+        if (Storage::disk('local')->has($oldkeyname)) {
+            $old_file = Storage::disk('local')->get($oldkeyname);
+            Storage::disk('local')->put($keyname, $old_file);
+            $update = true;
+        }
+
+        if($img){
+            Storage::disk('local')->put($keyname, File::get($img)); //works with (enctype="multipart/form-data") attribute to target form
+        }
+
+        if ($update && $oldkeyname !== $keyname) {
+            Storage::delete($oldkeyname);
+        }
+
         $building->update($request->all());
         return redirect('modify');
     }
 
     function destroy($id){
+        // $building = Building::findOrFail($id);
         Building::destroy($id);
+        // $building->delete();
         return redirect('modify');
     }
 

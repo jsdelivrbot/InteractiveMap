@@ -81,6 +81,7 @@
                     </div>
                     <div class="col-sm-6">
                       <button class="btn btn-sm btn-default pull-right" id="postSubmit">Submit</button>
+                      <button class="btn btn-box-tool pull-right" data-toggle="tooltip" data-placement="top" title='Are you sure to delete this building?' id='deletebutton'><i class="fa fa-times"></i></button>
                     </div>
                   </div>
 

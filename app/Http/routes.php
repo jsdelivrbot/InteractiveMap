@@ -38,7 +38,7 @@ Route::get('/b/{id}', 'BuildController@bID');
 
 Route::get('/b/not/{id}', 'BuildController@notId');
 
-Route::get('/search/{string}','BuildController@search'); //just to debug search scripts
+Route::get('/search','BuildController@search'); //just to debug search scripts
 // Route::get('search',
 // 	array('as' => 'search', 'uses'=>'BuildController@search')
 // 	);
@@ -50,9 +50,9 @@ Route::get('/autocomplete','BuildController@autocomplete'); //doesn't give descr
 // 	'uses'=>'BuildController@autocomplete'
 // 	);
 
-// Route::post('/modify/added','BuildController@create');// create
-// Route::post('/modify/update/{id}','BuildController@update'); //update
-// Route::delete('/modify/removed', 'BuildController@destroy'); //destroy
+Route::post('/modify/added','BuildController@create');// create
+Route::post('/modify/update/{id}','BuildController@update'); //update
+Route::post('/modify/remove/{id}', 'BuildController@destroy'); //destroy
 
 Route::get('/test',function(){
     return view('test');
@@ -63,9 +63,9 @@ Route::get('/buildimgs/{name}', [
     'as' => 'build.image'
 ]);
 
-Route::post('/modify/added','BuildController@debug');// create
-Route::post('/modify/update/{id}','BuildController@debug'); //update
-Route::delete('/modify/removed', 'BuildController@debug'); //destroy
+// Route::post('/modify/added','BuildController@debug');// create
+// Route::post('/modify/update/{id}','BuildController@debug'); //update
+// Route::delete('/modify/removed', 'BuildController@debug'); //destroy
 
 // Route::get('/results',function(){
 // 	return $_GET;
