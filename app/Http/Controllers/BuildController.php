@@ -77,6 +77,8 @@ class BuildController extends Controller
     // }
 
     function create(Request $request){
+        // $keyname = $request->input('keyname');
+        // Add other things here.
         Building::create($request->all());
         return redirect('buildings');
     }
@@ -93,6 +95,12 @@ class BuildController extends Controller
         return redirect('modify');
     }
 
+
+    function findImg($name){
+        $file = Storage::disk('local')->get($name);
+        return new Response($file, 200);
+    }
+
     function debug(Request $request){ //problem here
         $img = $request->file('file');
         // $name = $request->input('name');
@@ -101,23 +109,17 @@ class BuildController extends Controller
 
         if(File::isFile($img)){
             echo 'Something here';
-            echo $request->input('file');
+            // echo $request->input('file');
             // echo basename($img);
             /*
                 dont delete next
             */
-            //Storage::disk('local')->put('id.jpg', File::get($img)); //works with (enctype="multipart/form-data") attribute to target form
+            Storage::disk('local')->put('id.jpg', File::get($img)); //works with (enctype="multipart/form-data") attribute to target form
         } else {
             echo 'nothing here. :(';
             // echo $request .'<br>'. $img;
         }
 
     }
-
-    function findImg($name){
-        $file = Storage::disk('local')->get($name);
-        return new Response($file, 200);
-    }
-
 
 }

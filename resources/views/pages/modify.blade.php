@@ -55,12 +55,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js" type="text/javascript"></script>
 	  
 	<script src="{{ asset('/js/appbase/addedit.js')}}"></script> <!-- main.js for displays -->
+  
+  <script src="{{ asset('/validator/validator.min.js')}}"></script> <!-- main.js for displays -->
+
 
 	<script src="{{ asset('/plugins/colorpicker/bootstrap-colorpicker.min.js')}}"></script> <!-- colorpicker -->
 
 	<!-- main.js for displays -->
 	<!-- <script src="{{asset('/js/appbase/formHelper.js')}}"></script>  -->
-	<script type="text/javascript">console.log("Leaflet",L.Control.Draw);</script>
+	<!-- <script type="text/javascript">console.log("Leaflet",L.Control.Draw);</script> -->
 
 
 @endsection

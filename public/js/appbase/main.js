@@ -1,5 +1,6 @@
 var appThis = function(){
 	var table = new TableMain('tablebuild')
+	$('#addButton').hide();
 
  	if(appglobal.frontMap){
  		if(appglobal.map==undefined){
@@ -27,18 +28,6 @@ var appThis = function(){
 		}
 	  }
     });
-
- 	sampleName = [{id:1,name:"whoisthis"},{id:2,name:'areyouhere'}];
-
- 	// appglobal.search = new Bloodhound({
-	 //  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-	 //  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	 //  prefetch: '/b',
-	 //  remote: {
-	 //    url: '/b'
-	 //  }
- 	// })
-
 
 $('#typeahead').typeahead({
   minLength: 0
@@ -96,30 +85,12 @@ $('#typeahead').typeahead({
 		}
 	    var obj=table.buildObjs[id-1]
 		var modal =$('#buildModal')
-		modifyModal(modal,obj,table)
-	})
-	
-	$('#addButton').on('click',function(){ //remove add button
-		// var addobj;
-		// $('#addBuild').on('shown.bs.modal',function(e){
-		// 	if(appglobal.map==undefined){
-		// 		appglobal.map = new MapBase('map_build',false)
-		// 	}
-
-		// 	//test
-		// 	appglobal.map.supply(appglobal.buildFeature(table.buildObjs))
-			
-		// }).on('hidden.bs.modal',function(e){
-		// 	// console.log('closed',e)
-		// 	//complete info here.
-		// 	// Post addobj
-		// }).modal()
+		modifyModal(modal,obj)
 	})
 
 } //end appThis
 
 $(document).ready(appThis)
-
 
 function modifyModal(modal,obj){
 	modal.find('.modal-title').text(obj.name)
@@ -130,8 +101,8 @@ function modifyModal(modal,obj){
 			// console.log('do 1,orig content')
 			// bodydetails.hide()
 			var c = "<p><strong>Name: </strong><span class='text-muted'>"+obj.name+"</span></p>"
-				+ "<p><strong>Dates: </strong><span class='text-muted'>"+"obj.dates" +"</span></p>"
-				+ "<p><strong>Address: </strong><span class='text-muted'>"+ "obj.address" +"</span></p>"
+				+ "<p><strong>Address: </strong><span class='text-muted'>"+ obj.address +"</span></p>"
+				+ "<p><strong>Est. Land Area: </strong><span class='text-muted'>"+ obj.area +" sq. Meters</span></p>"
 				+ "<strong>Description: </strong><p class='text-muted text-justify'>" +obj.description+"</p>"
 			bodystate = false
 			return c
@@ -140,8 +111,9 @@ function modifyModal(modal,obj){
 			// console.log('do 2,change content')
 			// bodydetails.show()
 			var c = "<p><strong>BuildingID: </strong><span class='text-muted'>"+obj.id+"</span></p>"
+				+ "<p><strong>Keyname: </strong><span class='text-muted'>"+ obj.keyname +"</span></p>"
 				+ "<p><strong>Colors: </strong><span style='color:"+obj.roofcolor+";'> Roof </span><span style='color:"+obj.wallcolor+";'> Wall </span></p>"
-				+ "<p><strong>Floors: </strong><span class='text-muted'>"+obj.height/2+" </span></p>"
+				+ "<p><strong>Floors: </strong><span class='text-muted'>"+obj.height+" </span></p>"
 				+ "<p><strong>Added: </strong><span class='text-muted'>"+obj.created_at+" </span><strong class='margin-r-2'>Updated: </strong><span class='text-muted'>"+obj.updated_at+"</span></p>"
 				// + "<p></p>"
 				+ "<strong>PolygonText: </strong><p><span class='text-muted'>"+obj.polygon+"</span></p>"
@@ -216,6 +188,7 @@ maphandler = {
 		appglobal.map.on('pointerdown',function(e){
 			var modal =$('#buildModal')
 			var asObj = appglobal.map.getTarget(e.detail.x, e.detail.y, function(id) {
+
 				function findId(obj){
 					return obj.id === id;
 				}
@@ -223,6 +196,7 @@ maphandler = {
 		        	obj = appglobal.queried.find(findId)
 		        	modifyModal(modal,obj)
 		        }
+		        
 		    })
 			console.log("after", asObj)
 		})
@@ -237,8 +211,13 @@ maphandler = {
 		        }
 		      })
 		})
-	}
+	},highlight:function(id){
+		appglobal.map.highlight(id, '#f08000');
+	},
 }
 
 // function setView(obj) 
 
+// function buildResult(arr){
+
+// }

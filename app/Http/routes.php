@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/index', function () {
@@ -54,24 +54,6 @@ Route::get('/autocomplete','BuildController@autocomplete'); //doesn't give descr
 // Route::post('/modify/update/{id}','BuildController@update'); //update
 // Route::delete('/modify/removed', 'BuildController@destroy'); //destroy
 
-// Route::get('/buildimgs/{name}', 'BuildController@findImg');
-// Route::get('storage/{filename}', function ($filename)
-// {
-//     $path = storage_path('public/' . $filename);
-
-//     if (!File::exists($path)) {
-//         echo "not found";
-//         abort(404);
-//     }
-
-//     $file = File::get($path);
-//     $type = File::mimeType($path);
-
-//     $response = Response::make($file, 200);
-//     $response->header("Content-Type", $type);
-
-//     return $response;
-// });
 Route::get('/test',function(){
     return view('test');
 });

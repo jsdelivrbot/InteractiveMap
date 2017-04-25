@@ -15,7 +15,7 @@
                   <div class="pull-right text-muted" id='moreDetails'><a>More..</a></div>
                   </div>
                 <div class="box-body body1">
-                <!-- Description? -->
+                <!-- Description? controlled on main.js? -->
                 </div>
               </div>
             </div>
