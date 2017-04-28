@@ -128,7 +128,7 @@ function modifyModal(modal,obj){
 	} else {
 		$('#frontImg').attr('src','http://localhost:8000/buildimgs/'+ obj.keyname +'.jpg');
 	}
-	console.log(obj.srcstring);
+	// console.log(obj.srcstring);
 
 	var bodystate = true
 	modal.on('show.bs.modal',function(e){ //process modal text data
@@ -210,12 +210,21 @@ maphandler = {
 		})
 		.on('pointermove',function(e){
 			var asObj = appglobal.map.getTarget(e.detail.x, e.detail.y, function(id) {
+				// function findId(obj){
+				// 	return obj.id === id;
+				// }
 		        if (id) {
+		        	// obj = appglobal.queried.find(findId)
+		        	// $('#namebox').css({'top':e.y,'left':e.x});
+          			// $('#namebox').show()
+		        	console.log(obj,$('#namebox'))
 		        	document.body.style.cursor = 'pointer';
           			appglobal.map.highlight(id, '#f08000');
+          			// $('#namebox').html(obj.name)
 		        } else{
 		        	document.body.style.cursor = 'default';
 					appglobal.map.highlight(null);
+					// $('#namebox').hide()
 		        }
 		      })
 		})

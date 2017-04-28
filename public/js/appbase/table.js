@@ -26,8 +26,8 @@ TableMain.prototype.supply = function(obj) {
 		buildCard: function(id,s_Obj){
 			var c = "<div class='msc col-sm-3' id="
 			+id+"><div class='box box-primary'><div class='box-header with-border'>"
-			+ "<img class='img-header' src='buildings/" // change src to proper links.
-			+ s_Obj.image+".jpg' style='max-height: 120px; min-height: 60px;'></div>"  //image name here    
+			+ "<img class='img-header' src='http://localhost:8000/buildimgs/" // change src to proper links.
+			+ s_Obj.keyname+".jpg' style='max-height: 120px; min-height: 60px;'></div>"  //image name here    
             + "<div class='box-body'><p><strong class='text-info'>"
             +s_Obj.name + "</strong></p><strong>Description: </strong>"
             + "<p class='text-muted desc'>"

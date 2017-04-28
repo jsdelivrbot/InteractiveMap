@@ -4,8 +4,8 @@ var appglobal = { //required
 	map:null, //OSM 3D
 	map2: null, // OSM-Leaflet,
   osmb: null,
-  search: null,
-  target: null,
+  // search: null,
+  target: null, //used to collect target feature data
   drawnItems: null,
   controlGroup:null,
 	buildFeature: function(objs){

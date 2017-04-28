@@ -50,10 +50,15 @@
         @include('extra.search')
     </div>
   @include('extra.buildmodal')
+
+<!--   <div id="namebox">
+    <span id="preview-name"></span>
+  </div> -->
 @endsection
 
 @section('added-js')
   @yield('divdepscript')
+  <script src="{{ asset('/js/appbase/table.js') }}"></script>
 
   <script src="{{ asset('/js/OSMBuildings/OSMBuildings.js') }}"></script>
   <script src="{{ asset('/js/appbase/main.js') }}"></script>

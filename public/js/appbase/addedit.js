@@ -5,25 +5,22 @@
 var appThis = function(){
 	var table = new TableMain('tablebuild')
 	$('.colorpicker-component').colorpicker();
+	$('[data-toggle="popover"]').popover();
 
-	// var mainmap;
-
- 	//just sample.. query or ajax function starts here
- 	// $.getJSON('query/buildingquery.json',function(json){ 
- 	// 	appglobal.queried = json;
-	//	table.supply(json);
-	//	console.log('called sample query',json)
- 	// }); //ends sample function
 
  	$.ajax({
       type: 'GET',
       dataType: 'JSON',
       url: '/b',
+      ajax:false,
       success: function(buildings){
       	appglobal.queried = buildings;
 		table.supply(buildings);
 	    }
     });
+
+    // var b= $.get('/b');
+    // console.log(b)
 
     $('#typeahead').typeahead({
 	  minLength: 0
@@ -37,19 +34,13 @@ var appThis = function(){
 	  source: function(q,process){
 	  	// console.log(q,process);
 	  	return $.get('/autocomplete',{query:q},function(data){
-	  		console.log("queried",data,q);
+	  		// console.log("queried",data,q);
 	  		table.reset();
 	  		table.supply(data);
 	  	})
-	  },
-	  templates: {
-	  	suggestion: function(x){
-		  	console.log('im suggesting',x, this); //never works. :(
-		}
 	  }
 	});
 
- 	// console.log(table.buildObjs);
  	$('#cardlist,#tablelist').on('click', function(){
  		if($(this).hasClass('disabled')){
  			return;
@@ -72,23 +63,15 @@ var appThis = function(){
 			layout = $(this).closest('tr')
 			id = layout.children()[0].innerHTML
 		}
-	    // var obj=table.buildObjs[id-1]
 		var modal =$('#addBuild')
-		// var x = 'modify/update/'+id+'';
-		// console.log(x);
-		// $('#buildform').attr('action', x)
-		// $('#buildform').attr('method', 'get')
 		modifyModal(modal,id)
 	})
 
 
 	// 
 	$('#addButton').on('click',function(){
-		// var addobj;
 		var modal =$('#addBuild')
-		// $('#buildform').attr('action','modify/added')
 		modifyModal(modal)
-		// table.reset();
 	})
 
 } //end appThis
@@ -97,15 +80,11 @@ $(document).ready(appThis)
 
 //reform this modal
 function modifyModal(modal,id){
+
 	var target,
 		others;
-	$.ajax({
-      type: 'GET',
-      dataType: 'JSON',
-      url: '/b/'+id,
-      success: function(building){
-		// console.log('target')
-		// target = appglobal.buildFeature(building);
+
+	$.get('/b/'+id,function(building){
 		target = {
             type: "Feature", 
             geometry: {
@@ -120,8 +99,7 @@ function modifyModal(modal,id){
               wallColor: building.wallcolor
             }
         }
-	  }
-    });
+	})
 
     $.ajax({
       type: 'GET',
@@ -133,9 +111,36 @@ function modifyModal(modal,id){
 		// console.log('others',others)
 	  }
     });
-// var count=0;
+	
+	modal
+	.on('shown.bs.modal',function(e){ //process map on modal
+		// console.log(modal,e);
+		// e.preventDefault();
+
+		if(appglobal.map2==undefined){
+			maphandler.init() //initiate map and controls
+		}
+		// var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
+		maphandler.addOSM(others) //should add all except(only if edit) target osm to map
+		console.log(others,target,'where is this?');
+
+		maphandler.setTarget(target)
+
+
+		// console.log(appglobal.map2)
+	}).on('hidden.bs.modal',function(){
+		$('#area').html("No building selected")
+		appglobal.target = null;
+	})
+	.modal()
+
+	$('#postSubmit').on('click',function(){ //Use this for empty polygon //does really nothing
+		var name = $('input[name=name]'),
+			area;
+	})
+
 	if(id){
-		console.log('id present, modify form');
+		// console.log('id present, modify form');
 		$('#buildform').attr('action','modify/update/'+id+'/')
 		function findId(obj){
 			return obj.id == id;
@@ -150,55 +155,32 @@ function modifyModal(modal,id){
 		$('#desc').val(obj.description);
 		// $('#polygon').val();
 		// $('#area_').val();
-    	console.log(obj);
+    	// console.log(obj);
     	$('#deletebutton').show();
 	} else {
 		console.log('id missing, default form');
 		$('#buildform').attr('action','modify/added')
-		$('#name').empty();
-		$('#keyname').empty();
+		$('#name').val('');
+		$('#keyname').val('');
 		$("#height").val(defaultBuilding.height)
 		$("#wallcolor").val(defaultBuilding.wallcolor)
 		// $('#cp1').colorpicker('update');
 		$("#roofcolor").val(defaultBuilding.roofcolor)
 		// $('#cp2').colorpicker('update');
-		$('#desc').empty();
-		$('#polygon').empty();
-		$('#area_').empty();
+		$('#desc').val('');
+		$('#polygon').val('');
+		$('#area_').val('');
 		$('#deletebutton').hide();
+		target = null;
 	}
-	
-	modal
-	.on('shown.bs.modal',function(e){ //process map on modal
-		// console.log(modal,e);
-		// e.preventDefault();
-
-		if(appglobal.map2==undefined){
-			maphandler.init()
-		}
-		// var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
-		maphandler.addOSM(others) //should add all except(only if edit) target osm to map
-		// console.log(appglobal.osmb,'where is this?');
-
-		maphandler.initControls() //initiate controls on target osm, null if add
-
-		maphandler.setTarget(target)
 
 
-		// console.log(appglobal.map2)
-	})
-	.modal()
-
-	$('#postSubmit').on('click',function(){ //Use this for empty polygon
-		var name = $('input[name=name]'),
-			area;
-	})
-
-
-	$('#deletebutton').on('click',function(){
-		// $('#buildform').attr('method','method_')
-		$('#buildform').attr('action','modify/remove/'+id+'/')
-		// $('#buildform').submit()
+	$('#deletebutton').on('click',function(e){
+		e.preventDefault();
+		// $(this).popover('show');
+		$('#bdelete').on('click',function(e){
+			$('#buildform').attr('action','modify/remove/'+id+'/')
+		})
 	})
 
 
@@ -210,20 +192,17 @@ function modifyModal(modal,id){
 */
 
 var str = 'map_build'
-// leaflet = L.noConflict;
-	// targetobj //object still visible.
 
 maphandler = {
 	init:function(){
 		if(appglobal.map2!=null){
-			//do obj here instead
 			return;
 		}
-
-		// console.log(L.Control.Draw)
 		appglobal.map2 = new L.Map(str,{
 			center:[8.24107, 124.24392],
 			zoom:17,
+			maxZoom:19,
+			minZoom:16
 		})
 		new L.TileLayer('http://{s}.tiles.mapbox.com/v3/osmbuildings.kbpalbpk/{z}/{x}/{y}.png').addTo(appglobal.map2);
 
@@ -232,6 +211,69 @@ maphandler = {
 		    tilt: 45,
 		})
 
+		if(appglobal.controlGroup!=null){
+			return
+		}
+
+		appglobal.drawnItems = new L.FeatureGroup();
+     	appglobal.map2.addLayer(appglobal.drawnItems);
+
+		appglobal.controlGroup = new L.Control.Draw({
+		    draw: {
+		      polyline: false,
+		      polygon: {
+		        allowIntersection: false,
+		        shapeOptions: { color:'#ffcc00' },
+		        showArea:true
+		      },
+		      rectangle: {
+		        shapeOptions: { color:'#ffcc00' },
+		        showArea:true
+		      },
+		      circle: false,
+		      marker: false
+		    },
+		    edit:{
+		    	featureGroup: appglobal.drawnItems
+		    }
+		});
+
+		appglobal.map2.addControl(appglobal.controlGroup);
+
+		// var formpanel = L.DomUtil.get('addBuild');
+		// console.log(formpanel)
+		  /*
+			Controls Events
+		  */
+		appglobal.map2.on('draw:created', function (e) {
+		  	if(appglobal.target!=null){
+		  		return
+		  	}
+		    appglobal.target = e.layer;
+		    if(e.layerType =="polygon"){
+			    drawInfos(e.layer);
+		    	e.layer.TargetBuilding = "this";
+		    	appglobal.drawnItems.addLayer(e.layer); //not geoJson atm.
+		    }
+		}).on('draw:edited',function(e){
+		  	// console.log("done edit",e)
+			e.layers.eachLayer(function(layer){
+				drawInfos(layer)
+			});
+
+		}).on('draw:editstart',function(e){
+		  	// console.log("start edit",e)
+		}).on('draw:deleted',function(e){
+		  	// console.log("deleted a layer",e)
+		  	$('#polygon').val('');
+		  	$('#area_').val('');
+		  	e.layers.eachLayer(function(layer){
+			  	if(layer.TargetBuilding=="this"){
+					$('#area').html("Building removed. Must create new.")
+			  		appglobal.target = null;
+			  	}
+			});
+		});
 	},
 	setView:function(obj){
 	// body...
@@ -243,108 +285,11 @@ maphandler = {
 			return;
 		}
 		appglobal.osmb.set(obj);
-	},initControls:function(str){
-		if(appglobal.controlGroup!=null){
-			return
-		}
-
-		var color = '#ffcc00',
-		  height = 100,
-		  feature;
-
-		function setGeoJson() {
-		  if (!feature) {
-		    return;
-		  }
-		  feature.properties = {
-		  	roofColor: defaultBuilding.roofcolor,
-		    wallColor: defaultBuilding.wallcolor,
-		    height: defaultBuilding.height
-		  };
-		  var geoJson = {
-		    type: 'FeatureCollection',
-		    features: [feature]
-		  };
-		  appglobal.osmb.set(geoJson);
-		}
-
-		appglobal.drawnItems = new L.FeatureGroup();
-     		appglobal.map2.addLayer(appglobal.drawnItems);
-
-     		console.log(appglobal.drawnItems); 
-
-     	// var tentObj = new OSMBuildings()
-     		//Other controls
-     	// var tentControl = L.control.layers({},{'Leaflet polygon':drawnItems,"Osm Object":tentObj},{ position: 'topleft', collapsed: false }).addTo(appglobal.map2);
-     	// console.log(tentControl)
-     		// appglobal.map2.addLayer(tentControl)
-
-		appglobal.controlGroup = new L.Control.Draw({
-		    draw: {
-		      polyline: false,
-		      polygon: {
-		        allowIntersection: false,
-		        shapeOptions: { color:color },
-		        showArea:true
-		      },
-		      rectangle: {
-		        shapeOptions: { color:color },
-		        showArea:true
-		      },
-		      circle: false,
-		      marker: false
-		    },
-		    edit:{
-		    	featureGroup: appglobal.drawnItems
-		    }
-		});
-
-
-			
-		appglobal.map2.addControl(appglobal.controlGroup);
-
-		  /*
-			Controls Events
-		  */
-		appglobal.map2.on('draw:created', function (e) {
-		  	if(appglobal.target!=null){
-		  		return
-		  	}
-		    appglobal.target = e.layer;
-		    // console.log(e.layer);
-		    if(e.layerType =="polygon"){
-			    drawInfos(e.layer);
-		    	e.layer.TargetBuilding = "this";
-		    	appglobal.drawnItems.addLayer(e.layer); //not geoJson atm.
-		    }
-		    // setGeoJson();
-		}).on('draw:edited',function(e){
-		  	// console.log("done edit",e)
-				e.layers.eachLayer(function(layer){
-					drawInfos(layer)
-				});
-
-		}).on('draw:editstart',function(e){
-		  	// console.log("start edit",e)
-		}).on('draw:deleted',function(e){
-		  	// console.log("deleted a layer",e)
-		  	$('#polygon').val('');
-		  	$('#area_').val('');
-		  	e.layers.eachLayer(function(layer){
-			  	if(layer.TargetBuilding=="this"){
-			  		var c = "Building removed. Must create new."
-					$('#area').html(c)
-			  		appglobal.target = null;
-			  	}
-			});
-		})
-		  // .on('click',function(e){
-		  // 	console.log("check map",this)
-		  // })
-		  ;
 	},setTarget:function(t){
-		appglobal.drawnItems.clearLayers();
-
+		appglobal.drawnItems.clearLayers(); //clears drawn layers which werent submitted
+		if(t==null){
+			return;
+		}
 		L.geoJson(t, {
           onEachFeature: function (feature, layer) {
             appglobal.drawnItems.addLayer(layer);
@@ -352,8 +297,6 @@ maphandler = {
           	drawInfos(layer);
           }
         });
-
-		// appglobal.drawnItems.addLayer(t)
 	}
 	
 }

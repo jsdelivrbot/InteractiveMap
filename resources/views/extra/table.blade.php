@@ -9,10 +9,10 @@
                   </span>
             </div>
           </form>
-<!--           <div class="btn-group pull-right" style="padding-left: 10px;">
+          <div class="btn-group pull-right" style="padding-left: 10px;">
             <button class="btn btn-default" id="cardlist"><i class="fa fa-th-large"></i></button>
             <button class="btn btn-default disabled" id="tablelist"><i class="fa fa-list"></i></button>
-          </div> -->
+          </div>
           <button class='btn btn-primary pull-right' id='addButton'>
             Add Building
           </button>

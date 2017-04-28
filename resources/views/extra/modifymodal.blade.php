@@ -10,8 +10,7 @@
                 <strong>
                   Building Information
                 </strong>
-<!--                 <div class="box-title">
-                </div> -->
+                <button class="btn btn-sm btn-box-tool" type="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content='All other variables are hidden but collected for storage. 3D Building will initiate after submitting form.'><i class="fa fa-question"></i></button>
                 <div class="box-tools pull-right">
                   <button class="btn btn-box-tool" type="button" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div>
@@ -81,7 +80,8 @@
                     </div>
                     <div class="col-sm-6">
                       <button class="btn btn-sm btn-default pull-right" id="postSubmit">Submit</button>
-                      <button class="btn btn-box-tool pull-right" data-toggle="tooltip" data-placement="top" title='Are you sure to delete this building?' id='deletebutton'><i class="fa fa-times"></i></button>
+                      <button type="button" class="btn btn-sm btn-danger pull-right" data-toggle="popover" data-trigger="focus" data-placement="top" data-html='true' data-content='Are you sure to delete this building?<br><button class="btn btn-sm btn-danger" id="bdelete">Remove this building</button>' id='deletebutton'>Remove</button>
+
                     </div>
                   </div>
 
@@ -101,3 +101,5 @@
       </div>
     </div>
   </div>
+
+  <!-- <div class="modal fade" id='modal2'></div> -->

@@ -27,20 +27,26 @@
 <section class="content-header">
   <h1>
     Building List
-    <small>Datalist regarding buildings in IIT</small>
+    <small>Datalist regarding buildings in IIT, has been edited for mockup purposes. refer to modify building page for original design</small>
   </h1>
 </section>
 @endsection
 
 @section('main-content')
-  @include('extra.table')
+  {{-- this is comment. use for exclusion
+    @include('extra.table')
+  --}}
+  @include('extra.newtable')
 
   @include('extra.buildmodal')
 
 @endsection
 
 @section('added-js')
+  <script src="{{ asset('/js/appbase/table.js') }}"></script> <!-- change this -->
+  <!-- <script src="{{ asset('/js/appbase/newtable.js') }}"></script> -->
   <script src="{{ asset('/js/OSMBuildings/OSMBuildings.js') }}"></script>
   <script src="{{ asset('/js/appbase/main.js') }}"></script>
   <!-- <script type="text/javascript">appglobal.frontMap =true;</script> -->
+  @yield('testscript')
 @endsection

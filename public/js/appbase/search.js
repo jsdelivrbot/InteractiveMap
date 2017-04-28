@@ -1,3 +1,0 @@
-$.fn.searchBar = function(){
-	
-}

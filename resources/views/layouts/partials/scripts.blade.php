@@ -17,6 +17,5 @@
       user experience. Slimscroll is required when using the
       fixed layout. -->
 
-<script src="{{ asset('/js/appbase/table.js') }}"></script>
 <script src="{{ asset('/js/appbase/globalVar.js') }}"></script> <!-- global variables dont remove -->
 <!-- <script type="text/javascript">console.log("call?")</script> -->
