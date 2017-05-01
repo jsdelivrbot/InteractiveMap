@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'maplaravel'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', ''),
+            'database'  => env('DB_DATABASE', 'maplaravel'), //u635227684_db
+            'username'  => env('DB_USERNAME', 'root'), //u635227684_user
+            'password'  => env('DB_PASSWORD', ''), //NsLJe3kGGBCwYZ0
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
