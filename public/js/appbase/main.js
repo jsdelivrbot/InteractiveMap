@@ -210,21 +210,21 @@ maphandler = {
 		})
 		.on('pointermove',function(e){
 			var asObj = appglobal.map.getTarget(e.detail.x, e.detail.y, function(id) {
-				// function findId(obj){
-				// 	return obj.id === id;
-				// }
+				function findId(obj){
+					return obj.id === id;
+				}
 		        if (id) {
-		        	// obj = appglobal.queried.find(findId)
-		        	// $('#namebox').css({'top':e.y,'left':e.x});
-          			// $('#namebox').show()
-		        	console.log(obj,$('#namebox'))
+		        	obj = appglobal.queried.find(findId)
+		        	$('#namebox').css({'top':e.detail.y,'left':e.detail.x});
+          			$('#namebox').show()
+		        	// console.log(e.detail.y,e.detail.x);
 		        	document.body.style.cursor = 'pointer';
           			appglobal.map.highlight(id, '#f08000');
-          			// $('#namebox').html(obj.name)
+          			$('#namebox').html(obj.name)
 		        } else{
 		        	document.body.style.cursor = 'default';
 					appglobal.map.highlight(null);
-					// $('#namebox').hide()
+					$('#namebox').hide()
 		        }
 		      })
 		})

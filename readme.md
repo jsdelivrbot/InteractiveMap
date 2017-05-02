@@ -10,6 +10,7 @@ The project was able to establish the requirements of a dynamic interactive map 
 
 ### Version
 0.1.36
+Site: [Virtually]
 
 Maintained by [John Amba].
 
@@ -60,3 +61,4 @@ Note: branches are separated based on versions.
    [node.js]: <http://nodejs.org>
    [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
    [jQuery]: <http://jquery.com>
+   [Virtually]: <http://virtually.pe.hu/>

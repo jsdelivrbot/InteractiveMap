@@ -15,5 +15,8 @@
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+      <div>
+        <h5 class="pull-right" style="padding-right: 10px; padding-top: 5px;">This site is for demonstrations only.</h5>
+      </div>
     </nav>
 </header>

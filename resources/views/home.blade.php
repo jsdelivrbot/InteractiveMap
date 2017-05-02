@@ -32,6 +32,23 @@
       overflow: hidden;/* required for overflow*/
       text-overflow: ellipsis;/* required for overflow*/
     }
+    #namebox {
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.298039) 0 1px 4px -1px;
+      color: rgb(86, 86, 86);
+      font-size: 15px;
+      margin-top: 30px;
+      margin-left: 30px;
+      padding: 8px;
+      position: absolute;
+      z-index: 2;
+      height: 40px;
+      width: 300px;
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;/* required for overflow*/
+      text-overflow: ellipsis;/* required for overflow*/
+    }
   </style>
 
 @endsection
@@ -51,9 +68,9 @@
     </div>
   @include('extra.buildmodal')
 
-<!--   <div id="namebox">
+  <div id="namebox">
     <span id="preview-name"></span>
-  </div> -->
+  </div>
 @endsection
 
 @section('added-js')

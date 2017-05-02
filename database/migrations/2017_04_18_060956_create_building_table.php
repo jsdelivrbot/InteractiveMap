@@ -23,6 +23,7 @@ class CreateBuildingTable extends Migration
             $table->string('wallcolor',7);
             $table->string('image',70);
             $table->longText('polygon');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -62,7 +62,10 @@
               content.find('#b_name').html(obj.name);
               content.find('#b_name').attr('href','#build'+obj.id);
               content.find('.panel-collapse.collapse').attr('id','build'+obj.id);
-              imgroute = 'http://localhost:8000/buildimgs/'+obj.keyname+'.jpg'; //Bad route name.. must be flexed to laravel prescribed. or follow search blade specification.
+              // imgroute = 'http://localhost:8000/buildimgs/'+obj.keyname+'.jpg'; //Bad route name.. must be flexed to laravel prescribed. or follow search blade specification.
+              imgroute = "{{ route('build.image',['name' => 'image.jpg']) }}"
+              imgroute = imgroute.replace('image.jpg', obj.keyname+'.jpg')
+
               content.find('.media-object').attr('src',imgroute);
               content.find('#b_id').html(obj.id)
               content.find('#b_keyname').html(obj.keyname)
