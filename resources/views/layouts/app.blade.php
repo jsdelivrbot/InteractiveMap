@@ -52,12 +52,12 @@ desired effect
             <!-- Your Page Content Here -->
             @yield('main-content')
         </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
 
+    </div><!-- /.content-wrapper -->
+    @yield('subcontents')
      <!-- @ - include('layouts.partials.controlsidebar') -->
 
-    @yield('subcontents')
-
+    <!-- @ - include('layouts.partials.footer') -->
 </div><!-- ./wrapper -->
 
 @section('scripts')

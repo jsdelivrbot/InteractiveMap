@@ -16,7 +16,12 @@ var appThis = function(){
       success: function(buildings){
       	appglobal.queried = buildings;
 		table.supply(buildings);
-	    }
+	  },
+	  error:function(jqerror,str,error){
+	  	// console.log(jqerror,str,error)
+	  		$('#accordion').hide()
+	  		$('#con-warning').show()
+	  }
     });
 
     // var b= $.get('/b');
@@ -63,15 +68,30 @@ var appThis = function(){
 			layout = $(this).closest('tr')
 			id = layout.children()[0].innerHTML
 		}
+		//test
+		others = appglobal.queried.filter(function(el){
+			return el.id != id;
+		});; 
+		// target = others.splice(id-1,1);
+		target = appglobal.queried.filter(function(el){
+			return el.id == id;
+		});
+		obj = {
+			others: others,
+			target: target
+		}
+
+		// console.log(others,target,appglobal.queried,obj);
 		var modal =$('#addBuild')
-		modifyModal(modal,id)
+		modifyModal(modal,obj) //original
 	})
 
 
 	// 
 	$('#addButton').on('click',function(){
 		var modal =$('#addBuild')
-		modifyModal(modal)
+		// just get all data
+		modifyModal(modal) //original
 	})
 
 } //end appThis
@@ -79,86 +99,48 @@ var appThis = function(){
 $(document).ready(appThis)
 
 //reform this modal
-function modifyModal(modal,id){
+function modifyModal(modal,obj){
 
-	var target,
-		others;
+	var target, //set as feature
+		others, // set as geofeature
+		id; 
 
-	$.get('/b/'+id,function(building){
+	// console.log(target,others,id,obj.target[0]);
+
+	if(obj){
 		target = {
-            type: "Feature", 
-            geometry: {
-              type: "Polygon",
-              coordinates:  JSON.parse("" + building.polygon +"")
-            },
-            properties: {
-              id:  building.id,
-              name:  building.name,
-              roofColor: building.roofcolor,
-              height: building.height,
-              wallColor: building.wallcolor
-            }
-        }
-	})
+	        type: "Feature", 
+	        geometry: {
+	          type: "Polygon",
+	          coordinates:  JSON.parse("" + obj.target[0].polygon +"")
+	        },
+	        properties: {
+	          id:  obj.target[0].id,
+	          name:  obj.target[0].name,
+	          roofColor: obj.target[0].roofcolor,
+	          height: obj.target[0].height,
+	          wallColor: obj.target[0].wallcolor
+	        }
+	    }
+	    id = obj.target[0].id;
+		others = appglobal.buildFeature(obj.others);
 
-    $.ajax({
-      type: 'GET',
-      dataType: 'JSON',
-      url: '/b/not/'+id,
-      success: function(buildings){
-		// console.log('other',buildings)
-		others = appglobal.buildFeature(buildings);
-		// console.log('others',others)
-	  }
-    });
-	
-	modal
-	.on('shown.bs.modal',function(e){ //process map on modal
-		// console.log(modal,e);
-		// e.preventDefault();
-
-		if(appglobal.map2==undefined){
-			maphandler.init() //initiate map and controls
-		}
-		// var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
-		maphandler.addOSM(others) //should add all except(only if edit) target osm to map
-		console.log(others,target,'where is this?');
-
-		maphandler.setTarget(target)
-
-
-		// console.log(appglobal.map2)
-	}).on('hidden.bs.modal',function(){
-		$('#area').html("No building selected")
-		appglobal.target = null;
-	})
-	.modal()
-
-	$('#postSubmit').on('click',function(){ //Use this for empty polygon //does really nothing
-		var name = $('input[name=name]'),
-			area;
-	})
-
-	if(id){
-		// console.log('id present, modify form');
 		$('#buildform').attr('action','modify/update/'+id+'/')
-		function findId(obj){
-			return obj.id == id;
-		}
-    	obj = appglobal.queried.find(findId)
-
-    	$('#name').val(obj.name);
-		$('#keyname').val(obj.keyname);
-		$("#height").val(obj.height)
-		$("#wallcolor").val(obj.wallcolor)
-		$("#roofcolor").val(obj.roofcolor)
-		$('#desc').val(obj.description);
+    	$('#name').val(obj.target[0].name);
+		$('#keyname').val(obj.target[0].keyname);
+		$("#height").val(obj.target[0].height)
+		$("#wallcolor").val(obj.target[0].wallcolor)
+		$("#roofcolor").val(obj.target[0].roofcolor)
+		$('#desc').val(obj.target[0].description);
 		// $('#polygon').val();
 		// $('#area_').val();
     	// console.log(obj);
     	$('#deletebutton').show();
 	} else {
-		console.log('id missing, default form');
+		target = id = undefined;
+		others = appglobal.buildFeature(appglobal.queried);
+
+		// console.log('id missing, default form');
 		$('#buildform').attr('action','modify/added')
 		$('#name').val('');
 		$('#keyname').val('');
@@ -171,9 +153,34 @@ function modifyModal(modal,id){
 		$('#polygon').val('');
 		$('#area_').val('');
 		$('#deletebutton').hide();
-		target = null;
 	}
+	
+	modal
+	.on('shown.bs.modal',function(e){ //process map on modal
+		// console.log(modal,e);
+		// e.preventDefault();
 
+		if(appglobal.map2==undefined){
+			maphandler.init() //initiate map and controls
+		}
+		// var osm = appglobal.buildFeature(appglobal.queried)  //add all osm to map.
+		maphandler.addOSM(others) //should add all except(only if edit) target osm to map
+		// console.log(others,target,'where is this?');
+
+		maphandler.setTarget(target)
+
+
+		// console.log(appglobal.map2)
+	}).on('hidden.bs.modal',function(){
+		$('#area').html("No building selected")
+		appglobal.target = null;
+	})
+	.modal()
+
+	// $('#postSubmit').on('click',function(){ //Use this for empty polygon //does really nothing
+	// 	var name = $('input[name=name]'),
+	// 		area;
+	// })
 
 	$('#deletebutton').on('click',function(e){
 		e.preventDefault();
@@ -278,10 +285,10 @@ maphandler = {
 	setView:function(obj){
 	// body...
 
-		console.log(str, "setview");
+		// console.log(str, "setview");
 	},addOSM:function(obj){
 		if(appglobal.osmb==null){
-			console.log("not found osmb");
+			// console.log("not found osmb");
 			return;
 		}
 		appglobal.osmb.set(obj);

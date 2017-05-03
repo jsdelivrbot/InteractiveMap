@@ -33,13 +33,18 @@
 @endsection
 
 @section('main-content')
-  {{-- this is comment. use for exclusion
-    @include('extra.table')
-  --}}
+  {{-- this is comment. use for exclusion @include('extra.table') --}}
+
+  <div class="box box-warning" id="con-warning" hidden>
+    <div class="box-body">Cannot reach Database server at the moment. Try again later?.</div>
+  </div>
+
   @include('extra.newtable')
 
-  @include('extra.buildmodal')
+@endsection
 
+@section('subcontents')
+  @include('extra.buildmodal')
 @endsection
 
 @section('added-js')

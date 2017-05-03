@@ -40,12 +40,15 @@
 @endsection
 
 @section('main-content')
-	@include('extra.table')
+  <div class="box box-warning" id="con-warning" hidden>
+    <div class="box-body">Cannot reach Database server at the moment. Try again later?.</div>
+  </div>
+  @include('extra.table')
+
 @endsection
 
 @section('subcontents')
 	@include('extra.modifymodal')
-
 @endsection
 
 @section('added-js')

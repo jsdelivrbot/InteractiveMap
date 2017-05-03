@@ -13,9 +13,6 @@ var appThis = function(){
 		$('#b-img').show()
  	}
 
- 	// console.log(
- 	// 	)
-
  	$.ajax({
       type: 'GET',
       dataType: 'JSON',
@@ -26,52 +23,44 @@ var appThis = function(){
 		if(appglobal.map!=undefined){
 			maphandler.addOSM(appglobal.buildFeature(appglobal.queried))
 		}
+	  },error:function(jqerror,str,error){
+	  	// console.log(jqerror,str,error)
+	  		$('#accordion').hide()
+	  		$('#con-warning').show()
 	  }
-    });
+    }); //gets all buildings
 
-$('#typeahead').typeahead({
-  minLength: 0
-  // ,highlight: true
-  ,classNames: {
-  	input:''
-  }
-},
-{
-  // name: 'sampleName',
-  source: function(q,process){
-  	// console.log(q,process);
-  	return $.get('/autocomplete',{query:q},function(data){
-  		console.log("queried",data,q);
-  		table.reset();
-  		table.supply(data);
-  	})
-  },
-  templates: {
-  	suggestion: function(x){
-	  	console.log('im suggesting',x, this); //never works. :(
-	}
-  }
-});
+	$('#typeahead').typeahead({
+	  minLength: 0
+	  ,classNames: {
+	  	input:''
+	  }
+	},
+	{
+	  source: function(q,process){
+	  	return $.get('/autocomplete',{query:q},function(data){
+	  		console.log("queried",data,q);
+	  		table.reset();
+	  		table.supply(data);
+	  	})
+	  },
+	  templates: {
+	  	suggestion: function(x){
+		  	console.log('im suggesting',x, this); //never works. :(
+		}
+	  }
+	});
 
- 	// $('.sidebar-toggle').on('click',function(){
- 	// 	console.log('clicked')
- 	// 	// appglobal.map.appendTo(str);
- 	// })
- 	// console.log(table.buildObjs);
- 	 	$('#cardlist,#tablelist').on('click', function(){
+ 	 $('#cardlist,#tablelist').on('click', function(){
  		if($(this).hasClass('disabled')){
  			return;
  		}
  		var p = $(this).is('#tablelist')?"table":"card"
  		var _p = !$(this).is('#tablelist')?"table":"card"
- 		// console.log("show",p,"hide",_p)
- 		// var o = $(this).is('#tablelist') ? { list:$(this),build:$('#tablebuild')}: { list:$('#cardlist'),build:$('#cardbuild')}
- 		// var o = !$(this).is('#tablelist') ? { list:$('#cardlist'),build:$('#cardbuild')} : { list:$(this),build:$('#tablebuild')}
  		$('#'+_p+'build').hide()
  		$('#'+_p+'list').removeClass('disabled')
  		$('#'+p+'build').show()
  		$('#'+p+'list').addClass('disabled')
- 		// console.log($(this).is('#'+p+'list'));
  	})
 
 	$('#cardbuild,tbody').on('click','.msc',function(){
@@ -126,7 +115,7 @@ function modifyModal(modal,obj){
 		obj.srcstring = obj.srcstring.replace('image.jpg', obj.keyname+'.jpg')
 		$('#frontImg').attr('src',obj.srcstring);
 	} else {
-		$('#frontImg').attr('src','http://localhost:8000/buildimgs/'+ obj.keyname +'.jpg');
+		$('#frontImg').attr('src','http://virtually.pe.hu/buildimgs/'+ obj.keyname +'.jpg');
 	}
 	// console.log(obj.srcstring);
 

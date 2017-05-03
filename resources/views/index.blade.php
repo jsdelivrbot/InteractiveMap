@@ -13,6 +13,13 @@
       height: 600px;
       z-index: 1;
     }
+    .boxabs {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 450px;
+      z-index: 3;
+    }
   </style>
 
 @endsection
@@ -29,6 +36,9 @@
 @section('main-content')
   <div class="box box-solid" >
     <div id='b-map'>
+      <div class="box box-warning boxabs" id="con-warning" hidden>
+        <div class="box-body">Cannot reach Buildings db server at the moment. Try again later?.</div>
+      </div>
     </div>
   </div>
 
