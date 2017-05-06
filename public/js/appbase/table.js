@@ -25,7 +25,7 @@ TableMain.prototype.supply = function(obj) {
 	handler = {
 		buildCard: function(id,s_Obj){
 			var c = "<div class='msc col-sm-3' id="
-			+id+"><div class='box box-primary'><div class='box-header with-border'>"
+			+s_Obj.id+"><div class='box box-primary'><div class='box-header with-border'>"
 			+ "<img class='img-header' src='http://localhost:8000/buildimgs/" // change src to proper links.
 			+ s_Obj.keyname+".jpg' style='max-height: 120px; min-height: 60px;'></div>"  //image name here    
             + "<div class='box-body'><p><strong class='text-info'>"
@@ -35,7 +35,7 @@ TableMain.prototype.supply = function(obj) {
             return c
 		},
 		buildRow: function(id,s_Obj){
-			var c = "<td>"+id+"</td>"
+			var c = "<td>"+s_Obj.id+"</td>"
 			a = {
 				name:function(n){
 					return '<a class="msc">'+n+'</a>'
@@ -56,7 +56,7 @@ TableMain.prototype.supply = function(obj) {
 	var crd
 	$(obj).each(function(ind,val){
 		var z = handler.buildRow(ind+1,obj[ind])
-		crd = crd==undefined ? handler.buildCard(ind+1,obj[ind]) : crd+handler.buildCard(ind+1,obj[ind])
+		crd = crd==undefined ? handler.buildCard(obj[ind].id,obj[ind]) : crd+handler.buildCard(obj[ind].id,obj[ind])
 		arr.push(z)
 		tr += '<tr>'+z+'</tr>'
 	})

@@ -186,7 +186,8 @@ function modifyModal(modal,obj){
 		e.preventDefault();
 		// $(this).popover('show');
 		$('#bdelete').on('click',function(e){
-			$('#buildform').attr('action','modify/remove/'+id+'/')
+			// $('#buildform').attr('method','delete');	
+			$('#buildform').attr('action','modify/remove/'+id)
 		})
 	})
 
