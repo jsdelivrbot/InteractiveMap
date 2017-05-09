@@ -185,7 +185,7 @@ function modifyModal(modal,obj){
 	$('#deletebutton').on('click',function(e){
 		e.preventDefault();
 		// $(this).popover('show');
-		$('#bdelete').on('click',function(e){
+		$('#bdelete').on('click',function(u){
 			// $('#buildform').attr('method','delete');	
 			$('#buildform').attr('action','modify/remove/'+id)
 		})

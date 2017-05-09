@@ -24,9 +24,11 @@ Route::get('/index', function () {
 //     // redirect('buildings');
 // });
 
-// Route::get('/landing', function () {
+// Route::get('/test', function () {
 //     return view('layouts.landing');
 // });
+
+Route::get('/test', 'HomeController@modify2');
 
 Route::get('/buildings', 'HomeController@buildings');
 
@@ -58,9 +60,6 @@ Route::get('/buildimgs/{name}', [
     'as' => 'build.image'
 ]);
 
-// Route::get('/results',function(){
-// 	return $_GET;
-// });
 // Route::get('/logout', function () {
 //     return view('settings');
 // });

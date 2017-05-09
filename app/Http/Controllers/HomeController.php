@@ -43,6 +43,11 @@ class HomeController extends Controller
 
     public function modify(){
         $searchPH = 'Search to Edit';
+        return view('pages.modifynew',compact('searchPH'));
+    }
+
+    public function modify2(){
+        $searchPH = 'Search to Edit';
         return view('pages.modify',compact('searchPH'));
     }
 }
