@@ -1,0 +1,1251 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"s",
+				"strong\tTag"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"tre",
+				"treeview-menu"
+			],
+			[
+				"l",
+				"li\tTag"
+			],
+			[
+				"st",
+				"strong\tTag"
+			],
+			[
+				"set",
+				"setup"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"se",
+				"setup"
+			],
+			[
+				"app",
+				"apphandler"
+			],
+			[
+				"t",
+				"t_ID"
+			],
+			[
+				"fe",
+				"feature"
+			],
+			[
+				"de",
+				"deletebutton"
+			],
+			[
+				"is",
+				"isCreated"
+			],
+			[
+				"ed",
+				"editstart"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"o",
+				"osmb"
+			],
+			[
+				"map",
+				"map_build"
+			],
+			[
+				"drawn",
+				"drawnItems"
+			],
+			[
+				"layout",
+				"layout-boxed"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"img",
+				"imgroute"
+			],
+			[
+				"media",
+				"media-left"
+			],
+			[
+				"panel",
+				"panel-collapse"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"ac",
+				"accordion"
+			],
+			[
+				"text",
+				"text-muted"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"build",
+				"buildform"
+			],
+			[
+				"src",
+				"srcstring"
+			],
+			[
+				"sr",
+				"srcstring"
+			],
+			[
+				"bui",
+				"building"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"class",
+				"classNames"
+			],
+			[
+				"type",
+				"typeahead"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"poly",
+				"polygon"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"pro",
+				"process"
+			],
+			[
+				"draw",
+				"drawInfos"
+			],
+			[
+				"bi",
+				"buildings"
+			],
+			[
+				"th",
+				"thead\tTag"
+			],
+			[
+				"bu",
+				"buildings"
+			],
+			[
+				"geo",
+				"geojson"
+			],
+			[
+				"co",
+				"compact"
+			],
+			[
+				"find",
+				"findId"
+			],
+			[
+				"mod",
+				"modifyModal"
+			],
+			[
+				"glo",
+				"globalVar"
+			],
+			[
+				"que",
+				"queried"
+			],
+			[
+				"te",
+				"tentObj"
+			],
+			[
+				"O",
+				"OSMBuildings"
+			],
+			[
+				"c",
+				"console"
+			],
+			[
+				"e",
+				"eBuilding"
+			],
+			[
+				"Featu",
+				"FeatureCollection"
+			],
+			[
+				"add",
+				"addLayer"
+			],
+			[
+				"dr",
+				"drawnItems"
+			],
+			[
+				"js",
+				"jsMain"
+			],
+			[
+				"q",
+				"queryArguments"
+			],
+			[
+				"mo",
+				"modifyModal"
+			],
+			[
+				"input",
+				"input-sm"
+			],
+			[
+				"bg",
+				"background-color"
+			],
+			[
+				"col",
+				"col-sm-6"
+			],
+			[
+				"pull",
+				"pull-right"
+			],
+			[
+				"box",
+				"box-header"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"pu",
+				"pull-right"
+			],
+			[
+				"table",
+				"tablelist"
+			],
+			[
+				"card",
+				"cardbuild"
+			],
+			[
+				"pos",
+				"posObj"
+			],
+			[
+				"buil",
+				"buildFeature"
+			],
+			[
+				"body",
+				"bodystate"
+			],
+			[
+				"bod",
+				"bodystate"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"tex",
+				"text-muted"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"parse",
+				"parseJSON"
+			],
+			[
+				"Defl",
+				"deflectPath"
+			],
+			[
+				"tem",
+				"tempC"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"mem",
+				"memTemp"
+			],
+			[
+				"mouse",
+				"mousedrag"
+			],
+			[
+				"tAr",
+				"tArea"
+			],
+			[
+				"base",
+				"base2"
+			],
+			[
+				"temp",
+				"tempShape"
+			],
+			[
+				"x",
+				"x_coor"
+			],
+			[
+				"vert",
+				"vertForce"
+			],
+			[
+				"mom",
+				"momentArm"
+			],
+			[
+				"moemn",
+				"momentArm"
+			],
+			[
+				"tle",
+				"tlength"
+			],
+			[
+				"tl",
+				"tlength"
+			],
+			[
+				"end",
+				"endPoint"
+			],
+			[
+				"shearb",
+				"shearb4elm"
+			],
+			[
+				"shear",
+				"shearforceb4"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"mome",
+				"momentArm"
+			],
+			[
+				"xt",
+				"xstep"
+			],
+			[
+				"y",
+				"yreact"
+			],
+			[
+				"all",
+				"allReact"
+			],
+			[
+				"this",
+				"thisArr"
+			],
+			[
+				"tlen",
+				"tlen"
+			],
+			[
+				"el",
+				"elm"
+			],
+			[
+				"div",
+				"dividedMembers"
+			],
+			[
+				"tL",
+				"tLength"
+			],
+			[
+				"moment",
+				"momentArm"
+			],
+			[
+				"area",
+				"areaForce"
+			],
+			[
+				"rea",
+				"reaction"
+			],
+			[
+				"al",
+				"allReact"
+			],
+			[
+				"crea",
+				"createMomentPath"
+			],
+			[
+				"def",
+				"deflectPath"
+			],
+			[
+				"n",
+				"none"
+			],
+			[
+				"a",
+				"area2"
+			],
+			[
+				"shea",
+				"shearLimit"
+			],
+			[
+				"inter",
+				"intersections"
+			],
+			[
+				"Hi",
+				"Height"
+			],
+			[
+				"lo",
+				"loader"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "resources/views/pages/modifynew.blade.php",
+			"settings":
+			{
+				"buffer_size": 7123,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/extra/tutorial.blade.php",
+			"settings":
+			{
+				"buffer_size": 12338,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/appbase/main.js",
+			"settings":
+			{
+				"buffer_size": 6555,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 1074,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/appbase/addedit.js",
+			"settings":
+			{
+				"buffer_size": 8187,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Projects/maplaravel",
+		"/D/Projects/maplaravel/app",
+		"/D/Projects/maplaravel/bootstrap",
+		"/D/Projects/maplaravel/config",
+		"/D/Projects/maplaravel/database",
+		"/D/Projects/maplaravel/public",
+		"/D/Projects/maplaravel/public/css",
+		"/D/Projects/maplaravel/public/js",
+		"/D/Projects/maplaravel/public/js/appbase",
+		"/D/Projects/maplaravel/public/js/osmbuildings-leaflet",
+		"/D/Projects/maplaravel/resources",
+		"/D/Projects/maplaravel/resources/views",
+		"/D/Projects/maplaravel/resources/views/extra",
+		"/D/Projects/maplaravel/resources/views/layouts",
+		"/D/Projects/maplaravel/resources/views/pages"
+	],
+	"file_history":
+	[
+		"/D/Projects/maplaravel/public/js/appbase/modify.js",
+		"/D/Projects/maplaravel/resources/views/extra/search.blade.php",
+		"/D/Projects/maplaravel/resources/views/extra/warnmodal.blade.php",
+		"/D/Projects/maplaravel/public/css/AdminLTE.css",
+		"/D/Projects/maplaravel/resources/views/extra/buildmodal.blade.php",
+		"/D/Projects/maplaravel/public/js/appbase/globalVar.js",
+		"/D/Projects/maplaravel/resources/views/layouts/mainmod.blade.php",
+		"/D/Projects/maplaravel/public/js/appbase/addedit.js",
+		"/D/Projects/maplaravel/resources/views/extra/modifymodal.blade.php",
+		"/D/Projects/maplaravel/resources/views/pages/building.blade.php",
+		"/D/Projects/maplaravel/resources/views/layouts/app2.blade.php",
+		"/D/Projects/maplaravel/resources/views/layouts/partials/contentheader.blade.php",
+		"/D/Projects/maplaravel/resources/views/pages/modify.blade.php",
+		"/D/Projects/maplaravel/resources/views/index.blade.php",
+		"/D/Projects/maplaravel/resources/views/home.blade.php",
+		"/D/Projects/maplaravel/bootstrap/cache/compiled.php",
+		"/D/Projects/maplaravel/app/Http/routes.php",
+		"/D/Projects/maplaravel/app/Http/Controllers/HomeController.php",
+		"/D/Projects/maplaravel/resources/views/layouts/app.blade.php",
+		"/D/WebDev/unused/LaravelLTE-template/resources/views/layouts/app.blade.php",
+		"/D/Projects/maplaravel/resources/views/extra/table.blade.php",
+		"/D/Projects/maplaravel/public/.htaccess",
+		"/D/Projects/maplaravel/public/js/appbase/table.js",
+		"/D/Projects/maplaravel/public/js/appbase/main.js",
+		"/D/Projects/maplaravel/app/Http/Controllers/BuildController.php",
+		"/D/Projects/maplaravel/config/database.php",
+		"/D/Projects/maplaravel/resources/views/pages/BuildController.php",
+		"/D/Projects/maplaravel/resources/views/pages/routes.php",
+		"/D/Projects/maplaravel/resources/views/pages/database.php",
+		"/D/Projects/maplaravel/resources/views/extra/newtable.blade.php",
+		"/D/Projects/maplaravel/composer.json",
+		"/D/Projects/maplaravel/resources/views/layouts/partials/mainheader.blade.php",
+		"/D/Projects/maplaravel/resources/views/layouts/partials/htmlheader.blade.php",
+		"/D/Projects/maplaravel/readme.md",
+		"/D/Projects/maplaravel/database/migrations/2017_04_18_060956_create_building_table.php",
+		"/D/Projects/maplaravel/app/Building.php",
+		"/D/Projects/maplaravel/public/index.php",
+		"/C/Users/L0liet/.ssh/github_rsa.pub",
+		"/C/Users/L0liet/.ssh/id_rsa.pub",
+		"/C/Users/L0liet/.ssh/somehost_rsa",
+		"/C/Users/L0liet/.ssh/id_rsa",
+		"/C/Users/L0liet/.ssh/github_rsa",
+		"/C/Users/L0liet/.ssh/known_hosts",
+		"/D/Projects/maplaravel/server.php",
+		"/D/Projects/maplaravel/resources/views/layouts/partials/scripts.blade.php",
+		"/D/WebDev/InteractiveMap/paulgit/public/css/map-styles.css",
+		"/D/WebDev/InteractiveMap/paulgit/resources/views/home.blade.php",
+		"/D/Projects/maplaravel/public/js/appbase/newtable.js",
+		"/D/Projects/maplaravel/public/js/osmbuildings-leaflet/leaflet.draw.js",
+		"/D/Projects/maplaravel/public/css/leaflet.draw.css",
+		"/D/Projects/maplaravel/database/seeds/DatabaseSeeder.php",
+		"/D/Projects/maplaravel/public/typeahead/typeahead.bundle.js",
+		"/D/WebDev/LaravelPractice/Laravel-basic/laravel-basics-youtube/app/Http/Controllers/UserController.php",
+		"/D/WebDev/LaravelPractice/Laravel-basic/laravel-basics-youtube/app/Http/routes.php",
+		"/D/Projects/maplaravel/config/app.php",
+		"/D/Projects/maplaravel/public/js/appbase/search.js",
+		"/D/Projects/maplaravel/config/filesystems.php",
+		"/D/Projects/maplaravel/resources/views/extra/map.blade.php",
+		"/D/Projects/maplaravel/resources/views/front.blade.php",
+		"/D/Projects/maplaravel/resources/views/extra/frontmap.blade.php",
+		"/D/Projects/maplaravel/resources/views/pages/mapindex.blade.php",
+		"/D/Projects/maplaravel/resources/views/test.blade.php",
+		"/D/WebDev/InteractiveMap/paulgit/readme.md",
+		"/D/Projects/StructAnalysis/NewBeamTable.js",
+		"/D/Projects/maplaravel/resources/views/auth/login.blade.php",
+		"/D/WebDev/InteractiveMap/paulgit/public/css/main.css",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/TentBuildings.html",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/main.js",
+		"/D/Projects/RawInteractiveMap/NOTE.txt",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/formHelper.js",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/mapedit.js",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/AddEditpage.html",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/addedit.js",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/mapdist.js",
+		"/D/Projects/RawInteractiveMap/js/mapbase.js",
+		"/D/WebDev/InteractiveMap/paulgit/resources/views/main/buildings/create.blade.php",
+		"/D/Projects/RawInteractiveMap/js/mapdisp.js",
+		"/D/Projects/RawInteractiveMap/osmbuildings-master/dist/OSMBuildings-Leaflet.debug.js",
+		"/D/Projects/RawInteractiveMap/OSMBuildings/OSMBuildings.debug.js",
+		"/D/Projects/StructAnalysis/femcalculator.js",
+		"/D/Projects/StructAnalysis/Unusables/Note.txt",
+		"/D/Projects/StructAnalysis/extras.js",
+		"/D/Projects/StructAnalysis/BeamAnalysis.html",
+		"/D/Projects/RawInteractiveMap/js/main.js",
+		"/D/WebDev/InteractiveMap/paulgit/resources/views/landing.blade.php",
+		"/D/Projects/RawInteractiveMap/mainmap.html",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/jsMain/table.js",
+		"/D/Projects/StructAnalysis/mainControl.js",
+		"/D/Projects/StructAnalysis/beamDataStruct.js",
+		"/D/Projects/StructAnalysis/paperClass.js",
+		"/D/Projects/StructAnalysis/shapeControl.js",
+		"/D/Projects/StructAnalysis/BeamAnalysisNew.html",
+		"/D/Projects/RawInteractiveMap/buildingnamequery.json",
+		"/D/WebDev/InteractiveMap/paulgit/resources/views/main/buildings/index.blade.php",
+		"/D/Projects/RawInteractiveMap/AdminLTE-2.3.11/pages/widgets.html",
+		"/D/Projects/RawInteractiveMap/pages/buildingsList.html",
+		"/D/Projects/RawInteractiveMap/buildingqueryfixed.json",
+		"/D/Projects/RawInteractiveMap/buildingquery.json",
+		"/D/Projects/RawInteractiveMap/css/main.css",
+		"/D/WebDev/InteractiveMap/paulgit/public/css/user-map-styles.css",
+		"/D/WebDev/InteractiveMap/raw/building1.php",
+		"/D/WebDev/InteractiveMap/paulgit/public/json/polygons.json",
+		"/D/WebDev/InteractiveMap/paulgit/public/json/landarea.json",
+		"/D/Projects/StructAnalysis/sampleval.js",
+		"/D/Projects/StructAnalysis/.gitignore",
+		"/C/Users/L0liet/AppData/Local/Temp/Rar$DR13.681/paperClass.js",
+		"/C/Users/L0liet/AppData/Local/Temp/Rar$DR00.150/femcalculator.js",
+		"/D/Projects/StructAnalysis/variables.js",
+		"/D/Projects/StructAnalysis/Unusables/shearbendCalc.js",
+		"/D/Projects/StructAnalysis/Unusables/StuctAnalysisv3/sample.js",
+		"/D/Projects/StructAnalysis/Unusables/StuctAnalysisv3/shapeControl.js",
+		"/D/Projects/StructAnalysis/Unusables/StuctAnalysisv3/femcalculator.js",
+		"/D/Projects/StructAnalysis/Unusables/stresses.js",
+		"/D/Projects/StructAnalysis/papersample.js",
+		"/D/Projects/StructAnalysis/sample.js",
+		"/D/Projects/StructAnalysis/paperSample.html",
+		"/D/Projects/StructAnalysis/Unusables/stable2paper.js",
+		"/D/Projects/StructAnalysis/femSample.html",
+		"/D/Projects/StructAnalysis/Note.txt",
+		"/D/Projects/StructAnalysis/Unusables/stablePaperScript.js",
+		"/D/Projects/StructAnalysis/Snippets",
+		"/D/Projects/StructAnalysis/Unusables/StuctAnalysisv4/beamDataStruct.js",
+		"/D/Projects/StructAnalysis/pathGen.js",
+		"/D/Projects/StructAnalysis/paperHTML5/dist/paper-full.js",
+		"/D/Projects/StructAnalysis/paperClassBU.js",
+		"/D/Projects/StructAnalysis/sample2.js",
+		"/D/Projects/StructAnalysis/NewIllustrator.js",
+		"/D/Projects/StructAnalysis/paper.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"D:\\Projects\\maplaravel\\resources",
+			"D:\\Projects\\maplaravel\\public",
+			"D:\\Projects\\maplaravel\\resources",
+			"D:\\Projects\\maplaravel",
+			"D:\\WebDev\\InteractiveMap\\paulgit",
+			"D:\\WebDev\\InteractiveMap\\paulgit\\resources\\views",
+			"D:\\Projects\\StructAnalysis",
+			"D:\\StructAnalysis",
+			"D:\\WebDev\\InteractiveMap\\paulgit",
+			"D:\\WebDev\\paulgit",
+			"D:\\WebDev\\laraveldatatables",
+			"D:\\WebDev\\laravel5-example-master",
+			"D:\\WebDev\\Final_dev_IM"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"modbuild",
+			"console.log",
+			"maphandler.set",
+			"appglobal.modify",
+			"/b/",
+			"/b",
+			"/b/not",
+			"method",
+			"post",
+			"footer",
+			"console",
+			"appglobal.target",
+			"appglobal.search",
+			"h4",
+			"size",
+			"box ",
+			"panel",
+			"box",
+			"tooltip",
+			"stoppr",
+			"L.domUtil.",
+			"str",
+			"target",
+			"console.log",
+			"height",
+			"feature",
+			"setGeo",
+			"formHelper",
+			"method",
+			"image",
+			"li",
+			"change",
+			"source",
+			"typeahead",
+			"h4",
+			"colorpicker",
+			");\n",
+			"Files",
+			"console.log",
+			"appglobal.q",
+			"osm",
+			"drawnItems",
+			"target",
+			"controlGroup",
+			"obj",
+			"table",
+			"tentObj",
+			"Kasama",
+			"L.",
+			"leaflet",
+			"console.log(\"call?\")",
+			"call",
+			"prefetch",
+			"skin-blue",
+			"table",
+			"getTarget",
+			"view",
+			"bounds",
+			"this.bounds",
+			"App.options",
+			"App.options.bounds",
+			"OSMBuilding",
+			"targetObj",
+			"area",
+			"validate",
+			"returnedValue",
+			"returnedVakue",
+			"form",
+			"Edit",
+			"Draw",
+			"Control",
+			"this.osmb",
+			"OSMBUIldings",
+			"APP",
+			"app",
+			"APP",
+			"emit",
+			"tilt",
+			"setTilt",
+			"osmBUi",
+			"click",
+			"tilt",
+			"glmap",
+			"mainmap",
+			"modal",
+			"add",
+			"addTo",
+			"map",
+			"z",
+			"modifyModal",
+			"push",
+			"tilt",
+			"zoom",
+			")});",
+			"area",
+			"resultarea",
+			"modal",
+			"buildings",
+			"processedBuild",
+			"disable",
+			"title",
+			"selectable",
+			"AdminLTE-2.3.11",
+			"bldg",
+			"\\n              ",
+			"convert",
+			",",
+			"\\r\\n            ",
+			"\\r\\n              ",
+			"\\r\\n                ",
+			"\\r\\n                  ",
+			"selected",
+			"shearShap",
+			"shearstress",
+			"shear",
+			"console.log",
+			"search-box",
+			"shape",
+			"deflec",
+			"console.log",
+			"msc",
+			"solveD",
+			"tria",
+			"sublen",
+			"center2",
+			"center",
+			"two2",
+			"two"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Height",
+			"Base",
+			"ui selection dropdown",
+			"joints",
+			"m",
+			"this.",
+			"onchange",
+			"",
+			"mga",
+			"k",
+			"ang",
+			" sa",
+			"ang",
+			"ng",
+			"ang",
+			"m",
+			"n",
+			"s",
+			"y",
+			"k",
+			"ay ",
+			"ay",
+			"ang",
+			"na ",
+			"na",
+			"ang",
+			"na",
+			",",
+			".",
+			"ang",
+			"n",
+			"ang",
+			"n",
+			"g",
+			"i",
+			"ang",
+			",",
+			"y",
+			"n",
+			",",
+			"na",
+			"ang",
+			" sa",
+			"ng",
+			"mga",
+			"ng",
+			" sa",
+			"sa",
+			"ang",
+			"ma",
+			"ang ",
+			"tao ",
+			"na ",
+			"na",
+			"ang",
+			"Ang",
+			"ng",
+			"siya",
+			"n",
+			"ang",
+			"sa ",
+			"sa",
+			"ang",
+			"ng",
+			"n",
+			"sa",
+			"n",
+			"g",
+			"m",
+			",",
+			"K",
+			"o",
+			"ang",
+			"ng",
+			"g",
+			"ang",
+			"g",
+			"ng",
+			" na ",
+			"iyon",
+			"m",
+			" ay",
+			" na",
+			" na ",
+			" ang ",
+			" sa ",
+			" mga ",
+			" na ",
+			" ng ",
+			" ni ",
+			" na ",
+			" sa ",
+			" ",
+			"007236"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "resources/views/pages/modifynew.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7064,
+								7064
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 398.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/extra/tutorial.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1659,
+								1659
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/js/appbase/main.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 6555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1611,
+								1611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 489.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/HomeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1074,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								910,
+								910
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/appbase/addedit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8187,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								548,
+								548
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2064.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "maplaravel.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 378.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

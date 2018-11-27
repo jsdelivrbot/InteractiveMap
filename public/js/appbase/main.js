@@ -90,7 +90,7 @@ function modifyModal(modal,obj){
 			// console.log('do 1,orig content')
 			// bodydetails.hide()
 			var c = "<p><strong>Name: </strong><span class='text-muted'>"+obj.name+"</span></p>"
-				+ "<p><strong>Address: </strong><span class='text-muted'>"+ obj.address +"</span></p>"
+				// + "<p><strong>Address: </strong><span class='text-muted'>"+ obj.address +"</span></p>"
 				+ "<p><strong>Est. Land Area: </strong><span class='text-muted'>"+ obj.area +" sq. Meters</span></p>"
 				+ "<strong>Description: </strong><p class='text-muted text-justify'>" +obj.description+"</p>"
 			bodystate = false
